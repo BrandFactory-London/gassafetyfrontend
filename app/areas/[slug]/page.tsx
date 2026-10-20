@@ -100,8 +100,8 @@ export default async function AreaPage({ params }: Props) {
           </h2>
           <FaqList
             items={[
-              { q: `How soon can you visit in ${area.name}?`, a: 'Usually within [X working days]. Tell us your deadline and we will prioritise it.' },
-              { q: 'Do you charge extra for travel?', a: `[No. ${area.name} is inside our standard area, so the prices above include travel.]` },
+              { q: `How soon can you visit in ${area.name}?`, a: `Usually within [X working days] of booking in ${area.name}. If a certificate is about to expire, or you need a check before a new tenant moves in, tell us your deadline when you book and we will prioritise it.\n\nGas safety checks can be done up to two months before the current certificate expires without losing your renewal date, so booking a few weeks ahead gives your tenant more choice of times and avoids a last-minute rush. We contact your tenant directly to arrange access, so you do not need to be there.` },
+              { q: 'Do you charge extra for travel?', a: `[No. ${area.name} is inside our standard area, so the prices above include travel.]\n\n[There is no congestion charge, ULEZ or parking surcharge added to your invoice. Client to confirm.] If parking is limited near the property, for example in a residents' permit zone, let us know when you book and we will plan around it.\n\nThe same fixed prices apply across every London and Essex area we cover, so a check in ${area.name} costs the same as anywhere else on our list. Extra appliances and consumer units are priced on our pricing page, so you can see the full cost before you book.` },
             ]}
           />
         </div>

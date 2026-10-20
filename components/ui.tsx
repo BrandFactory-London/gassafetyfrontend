@@ -154,7 +154,8 @@ export function FaqList({ items }: { items: Faq[] }) {
       {items.map((item, i) => (
         <details key={item.q} open={i === 0}>
           <summary>{item.q}</summary>
-          <p>{item.a}</p>
+          {/* A blank line (\n\n) in an answer starts a new paragraph. */}
+          {typeof item.a === 'string' ? item.a.split('\n\n').map((para) => <p key={para}>{para}</p>) : <p>{item.a}</p>}
         </details>
       ))}
     </div>

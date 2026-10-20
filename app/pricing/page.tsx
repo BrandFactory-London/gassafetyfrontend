@@ -94,9 +94,9 @@ export default function PricingPage() {
         </h2>
         <FaqList
           items={[
-            { q: 'Are there any hidden extras?', a: 'No. If our engineer finds something that needs fixing, we quote it separately and nothing is done without your approval.' },
-            { q: 'When do I pay?', a: '[At booking, or after the visit. Client to confirm.]' },
-            { q: 'Is there a call-out charge for remedial work?', a: '[Client to confirm.]' },
+            { q: 'Are there any hidden extras?', a: `No. The price you see is the price you pay for the certificate, [including travel within our London and Essex area and VAT. Client to confirm.] Extra appliances and consumer units are priced on this page, so you can work out the full cost before you book.\n\nIf our engineer finds something that needs fixing, that is separate from the certificate, and we never carry out work without your approval. You receive a fixed quote for the repair, usually the same day, and you are free to use us or another qualified engineer. If an appliance is dangerous, the engineer will make it safe before leaving, as the law requires, [and this is not charged as extra work. Client to confirm.]` },
+            { q: 'When do I pay?', a: `[At booking, or after the visit. Client to confirm.]\n\n[Payment is by card or bank transfer, and letting agents with an account can be invoiced monthly for all their properties. Client to confirm.]\n\nYou receive a receipt for every booking, and your certificate is emailed as soon as the visit is complete, usually within 24 hours. If anything needs fixing, the remedial quote is separate and you only pay for that work once you have approved it.` },
+            { q: 'Is there a call-out charge for remedial work?', a: `[Client to confirm whether there is a call-out charge.]\n\nWhen a check finds faults, we quote the remedial work as a fixed price covering labour and standard parts, so you know the full cost before agreeing to anything. If the work is small enough to do on the same visit, we ask for your approval first and complete it there and then, which saves a second trip.\n\nFor faults found by another company, we quote from their report and confirm the price on site before starting. If anything changes once work is underway, such as a hidden fault behind a wall, we stop and contact you before going any further.` },
           ]}
         />
       </section>
