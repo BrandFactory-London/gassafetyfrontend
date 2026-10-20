@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageBackground from '@/components/PageBackground';
+import RevealController from '@/components/RevealController';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <main id="main">{children}</main>
         </PageBackground>
         <Footer />
+        <RevealController />
       </body>
     </html>
   );

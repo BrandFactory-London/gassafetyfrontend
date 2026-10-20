@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, type ReactNode } from 'react';
+import DotFieldCanvas from './DotFieldCanvas';
 
 /**
  * One continuous gradient behind the whole page, with faint dot matrices,
@@ -33,11 +34,12 @@ export default function PageBackground({ children }: { children: ReactNode }) {
 
   return (
     <div className="page" ref={ref}>
+      <DotFieldCanvas />
       <div className="bg-layer" aria-hidden="true">
-        <div className="bg-glow" style={{ top: -260, right: -220, width: 760, height: 760, background: 'radial-gradient(circle, rgba(242,183,5,0.16) 0%, rgba(242,183,5,0) 65%)' }} />
-        <div className="bg-glow" style={{ top: '24%', left: -320, width: 900, height: 900, background: 'radial-gradient(circle, rgba(27,122,115,0.09) 0%, rgba(27,122,115,0) 65%)' }} />
-        <div className="bg-glow" style={{ top: '52%', right: -300, width: 860, height: 860, background: 'radial-gradient(circle, rgba(242,169,59,0.10) 0%, rgba(242,169,59,0) 65%)' }} />
-        <div className="bg-glow" style={{ top: '80%', left: -260, width: 820, height: 820, background: 'radial-gradient(circle, rgba(47,163,150,0.08) 0%, rgba(47,163,150,0) 65%)' }} />
+        <div className="bg-glow parallax-drift" style={{ top: -260, right: -220, width: 760, height: 760, background: 'radial-gradient(circle, rgba(242,183,5,0.16) 0%, rgba(242,183,5,0) 65%)' }} />
+        <div className="bg-glow parallax-deep" style={{ top: '24%', left: -320, width: 900, height: 900, background: 'radial-gradient(circle, rgba(27,122,115,0.09) 0%, rgba(27,122,115,0) 65%)' }} />
+        <div className="bg-glow parallax-rev" style={{ top: '52%', right: -300, width: 860, height: 860, background: 'radial-gradient(circle, rgba(242,169,59,0.10) 0%, rgba(242,169,59,0) 65%)' }} />
+        <div className="bg-glow parallax-deep" style={{ top: '80%', left: -260, width: 820, height: 820, background: 'radial-gradient(circle, rgba(47,163,150,0.08) 0%, rgba(47,163,150,0) 65%)' }} />
 
         <div className="parallax-fast" style={{ position: 'absolute', top: 110, right: 48, width: 380, height: 320 }}>
           <div className="bg-dots" style={{ inset: 0 }} />
@@ -74,13 +76,15 @@ export default function PageBackground({ children }: { children: ReactNode }) {
           <path className="trace-pulse-slow" d="M720 300H480l-40 40H260l-30-30H60" fill="none" stroke="#2FA396" strokeOpacity="0.55" strokeWidth="2" strokeLinecap="round" />
         </svg>
 
-        <svg width="1800" height="200" viewBox="0 0 1800 200" style={{ position: 'absolute', top: '17%', left: -120 }}>
+        <div className="parallax-slow" style={{ position: 'absolute', top: '17%', left: -120 }}>
+        <svg width="1800" height="200" viewBox="0 0 1800 200">
           <g className="wave" fill="none" strokeWidth="1.5">
             <path d="M0 80C100 40 200 120 300 80S500 40 600 80S800 120 900 80S1100 40 1200 80S1400 120 1500 80S1700 40 1800 80" stroke="#1B7A73" strokeOpacity="0.10" />
             <path d="M0 110C100 70 200 150 300 110S500 70 600 110S800 150 900 110S1100 70 1200 110S1400 150 1500 110S1700 70 1800 110" stroke="#1B7A73" strokeOpacity="0.07" />
             <path d="M0 140C100 100 200 180 300 140S500 100 600 140S800 180 900 140S1100 100 1200 140S1400 180 1500 140S1700 100 1800 140" stroke="#F2A93B" strokeOpacity="0.12" />
           </g>
         </svg>
+        </div>
 
         <svg className="parallax-slow" width="640" height="420" viewBox="0 0 640 420" style={{ position: 'absolute', top: '40%', left: -60 }}>
           <g fill="none" stroke="#1B7A73" strokeOpacity="0.10" strokeWidth="1.5">
@@ -99,12 +103,14 @@ export default function PageBackground({ children }: { children: ReactNode }) {
           <path className="trace-pulse" d="M0 160H120l30 30h210l40-40h240" fill="none" stroke="#2FA396" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" />
         </svg>
 
-        <svg width="1800" height="200" viewBox="0 0 1800 200" style={{ position: 'absolute', top: '76%', left: -200 }}>
+        <div className="parallax-deep" style={{ position: 'absolute', top: '76%', left: -200 }}>
+        <svg width="1800" height="200" viewBox="0 0 1800 200">
           <g className="wave" fill="none" strokeWidth="1.5">
             <path d="M0 80C100 40 200 120 300 80S500 40 600 80S800 120 900 80S1100 40 1200 80S1400 120 1500 80S1700 40 1800 80" stroke="#1B7A73" strokeOpacity="0.09" />
             <path d="M0 115C100 75 200 155 300 115S500 75 600 115S800 155 900 115S1100 75 1200 115S1400 155 1500 115S1700 75 1800 115" stroke="#F2A93B" strokeOpacity="0.11" />
           </g>
         </svg>
+        </div>
 
         <svg className="parallax-fast" width="640" height="380" viewBox="0 0 640 380" style={{ position: 'absolute', top: '66%', right: -60 }}>
           <g fill="none" stroke="#1B7A73" strokeOpacity="0.10" strokeWidth="1.5">
