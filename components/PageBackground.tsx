@@ -1,40 +1,67 @@
 'use client';
 
 import { useEffect, useRef, type ReactNode } from 'react';
-import DotFieldCanvas from './DotFieldCanvas';
 
 /**
  * One continuous gradient behind the whole page, with faint dot matrices,
  * circuit traces and waves. Positions are percentages of page height so the
- * same layer works on short and long pages. Scroll drives a --scroll variable
- * that the parallax classes read; reduced-motion users get a static layer.
+ * same layer works on short and long pages. On scroll, each parallax layer
+ * gets a --p variable (its distance from the middle of the viewport) that the
+ * parallax classes multiply by their rate; reduced-motion users get a static
+ * layer.
  */
 export default function PageBackground({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const page = ref.current;
+    if (!page) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    let frame = 0;
-    const onScroll = () => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(() => {
-        frame = 0;
-        el.style.setProperty('--scroll', String(Math.round(window.scrollY)));
+
+    const layers = Array.from(page.querySelectorAll<HTMLElement | SVGElement>('[class*="parallax-"]'));
+    // Natural (untransformed) vertical centre of each layer in the document.
+    let centres: number[] = [];
+    const measure = () => {
+      // Zero the offsets, read every box in one layout pass, then reapply.
+      layers.forEach((el) => el.style.setProperty('--p', '0'));
+      const y = window.scrollY;
+      centres = layers.map((el) => {
+        const r = el.getBoundingClientRect();
+        return r.top + y + r.height / 2;
       });
     };
-    onScroll();
+
+    let frame = 0;
+    const apply = () => {
+      frame = 0;
+      const mid = window.scrollY + window.innerHeight / 2;
+      layers.forEach((el, i) => el.style.setProperty('--p', String(Math.round(mid - centres[i]))));
+    };
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(apply);
+    };
+    const onResize = () => {
+      measure();
+      onScroll();
+    };
+
+    measure();
+    apply();
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
+    // Page height changes as fonts and images load, which moves % positions.
+    const ro = 'ResizeObserver' in window ? new ResizeObserver(onResize) : null;
+    ro?.observe(page);
     return () => {
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+      ro?.disconnect();
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);
 
   return (
     <div className="page" ref={ref}>
-      <DotFieldCanvas />
       <div className="bg-layer" aria-hidden="true">
         <div className="bg-glow parallax-drift" style={{ top: -260, right: -220, width: 760, height: 760, background: 'radial-gradient(circle, rgba(242,183,5,0.16) 0%, rgba(242,183,5,0) 65%)' }} />
         <div className="bg-glow parallax-deep" style={{ top: '24%', left: -320, width: 900, height: 900, background: 'radial-gradient(circle, rgba(27,122,115,0.09) 0%, rgba(27,122,115,0) 65%)' }} />

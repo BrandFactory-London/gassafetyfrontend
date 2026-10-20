@@ -133,16 +133,16 @@ ul, ol { margin: 0; padding: 0; }
   mask-image: radial-gradient(ellipse at center, #000 18%, transparent 72%);
 }
 /* Parallax depth: each layer drifts at its own rate against the scroll, so
-   glows, waves, traces and dots separate into layers. */
-.parallax-slow { transform: translate3d(0, calc(var(--scroll, 0) * 0.08px), 0); }
-.parallax-fast { transform: translate3d(0, calc(var(--scroll, 0) * -0.16px), 0); }
-.parallax-rev { transform: translate3d(0, calc(var(--scroll, 0) * -0.08px), 0); }
-.parallax-deep { transform: translate3d(0, calc(var(--scroll, 0) * 0.18px), 0); }
-.parallax-drift { transform: translate3d(calc(var(--scroll, 0) * -0.05px), calc(var(--scroll, 0) * 0.04px), 0); }
-
-/* Pointer dot field (accent dots that swell around the cursor) */
-.ks-dot-field { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0; transition: opacity 600ms ease-out; }
-.ks-dot-field.ks-dot-field-ready { opacity: 1; }
+   glows, waves, traces and dots separate into layers. --p is set per layer
+   by PageBackground: its distance in px from the middle of the viewport, so
+   every graphic sits at its natural spot when centred on screen. Positive
+   rates lag behind the scroll (feel further back), negative rates move
+   ahead of it (feel closer). Raise or lower the multipliers to tune. */
+.parallax-slow { transform: translate3d(0, calc(var(--p, 0) * 0.18px), 0); }
+.parallax-fast { transform: translate3d(0, calc(var(--p, 0) * -0.34px), 0); }
+.parallax-rev { transform: translate3d(0, calc(var(--p, 0) * -0.18px), 0); }
+.parallax-deep { transform: translate3d(0, calc(var(--p, 0) * 0.38px), 0); }
+.parallax-drift { transform: translate3d(calc(var(--p, 0) * -0.12px), calc(var(--p, 0) * 0.1px), 0); }
 
 /* Scroll entrances: float up or fade, applied by RevealController */
 .rv[data-rv] { transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease; }
@@ -167,7 +167,6 @@ main > section:first-of-type > :nth-child(n + 3), main > nav + section > :nth-ch
 @media (prefers-reduced-motion: reduce) {
   .trace-pulse, .trace-pulse-slow, .wave, .reveal { animation: none !important; }
   .parallax-slow, .parallax-fast, .parallax-rev, .parallax-deep, .parallax-drift { transform: none !important; }
-  .ks-dot-field { transition: none; }
   main > section:first-of-type > *, main > nav + section > * { animation: none; }
   .card, .review, .faq details, .chip, .option { transition: none; }
 }
