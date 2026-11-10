@@ -4,9 +4,9 @@ import { FlameIcon, WrenchIcon } from "@/components/icons";
 import { Button, CtaSection, SectionHead, ServiceCard } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Gas Engineers for Landlords, London and Essex",
+  title: "Gas Engineers for Landlords, London",
   description:
-    "Gas Safe registered engineers for landlord gas safety checks, boiler servicing, installations and repairs across London and Essex.",
+    "Gas Safe registered engineers for landlord gas safety checks, boiler servicing, installations and repairs across London.",
 };
 
 // Draft copy: full Batch 2 copy to follow.
@@ -49,9 +49,9 @@ export default function GasHubPage() {
             icon={<FlameIcon />}
             tile="gas"
             title="Boiler installation"
-            text="Replacement boilers fitted and registered, with your tenant kept informed. [Detail page in Batch 2.]"
-            href="/contact"
-            linkLabel="Ask for a quote"
+            text="Replacement boilers fitted and registered, with your tenant kept informed."
+            href="/boiler-installation"
+            linkLabel="Boiler installation"
           />
           <ServiceCard
             icon={<FlameIcon />}

@@ -6,7 +6,7 @@ import { Button, ImageBox, SectionHead } from "@/components/ui";
 export const metadata: Metadata = {
   title: "About Us: Registered Gas and Electrical Engineers",
   description:
-    "Gas Safe, NAPIT and NIC registered engineers helping London and Essex landlords stay compliant. Meet the team, check our registrations and see how we work.",
+    "Gas Safe, NAPIT and NIC registered engineers helping London landlords stay compliant. Meet the team, check our registrations and see how we work.",
 };
 
 const principles = [
@@ -34,8 +34,8 @@ export default function AboutPage() {
             Registered engineers who explain the rules and handle the job
           </h1>
           <p className="lead">
-            We help landlords and letting agents across London and Essex keep every property safe,
-            certified and on record.
+            We help landlords and letting agents across London keep every property safe, certified
+            and on record.
           </p>
           <Button href="/book">Get a price</Button>
         </div>
@@ -141,9 +141,7 @@ export default function AboutPage() {
           <h2 className="heading-lg" style={{ marginBottom: 12 }}>
             Where we work
           </h2>
-          <p className="body">
-            All London boroughs and [Essex areas to confirm], from our base in {site.base}.
-          </p>
+          <p className="body">Every Greater London borough, from our base in {site.base}.</p>
         </div>
         <div className="row" style={{ justifyContent: "flex-end" }}>
           <Button href="/book">Get a price</Button>

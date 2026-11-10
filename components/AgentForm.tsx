@@ -67,7 +67,7 @@ export default function AgentForm() {
           id="ag-areas"
           className="input"
           type="text"
-          placeholder="e.g. Newham, Romford, Chelmsford"
+          placeholder="e.g. Newham, Romford, Hackney"
         />
       </div>
       <div className="field full">

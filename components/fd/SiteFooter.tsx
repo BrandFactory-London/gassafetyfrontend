@@ -10,7 +10,7 @@ export default function SiteFooter() {
         <div>
           <NamePlate />
           <p style={{ margin: "18px 0 0", lineHeight: 1.6 }}>
-            Gas, electrical and EPC certificates for landlords across London and Essex.
+            Gas, electrical and EPC certificates for landlords across London.
           </p>
         </div>
         {footerNav.map((group) => (

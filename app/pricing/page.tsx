@@ -6,7 +6,7 @@ import { Button, CtaSection, FaqList, SectionHead, TickList } from "@/components
 export const metadata: Metadata = {
   title: "Landlord Certificate Prices: EICR and Gas Safety Costs",
   description:
-    "Fixed prices for Gas Safety Certificates, EICRs, alarm checks and bundles across London and Essex. VAT included, no hidden extras, certificates within 24 hours.",
+    "Fixed prices for Gas Safety Certificates, EICRs, alarm checks and bundles across London. VAT included, no hidden extras, certificates within 24 hours.",
 };
 
 const rows = [
@@ -39,8 +39,8 @@ export default function PricingPage() {
       >
         <h1 className="display-xl">Fixed prices for landlord certificates</h1>
         <p className="lead">
-          Every price below includes VAT and travel within our London and Essex area. You will see
-          your exact price before you book.
+          Every price below includes VAT and travel within Greater London. You will see your exact
+          price before you book.
         </p>
         <Button href="/book">Get my exact price</Button>
       </section>
@@ -86,11 +86,11 @@ export default function PricingPage() {
       <section className="container section split split-top">
         <div>
           <h2 className="heading-lg" style={{ marginBottom: 12 }}>
-            One price list for London and Essex
+            One price list for all of London
           </h2>
           <p className="body">
-            Prices are the same across our whole area, from central London to the Essex coast. No
-            zone charges and no extra for outer postcodes.
+            Prices are the same in every London borough, from Zone 1 to the edge of the M25. No zone
+            charges and no extra for central postcodes.
           </p>
         </div>
         <div className="panel-soft">
@@ -134,7 +134,7 @@ export default function PricingPage() {
           items={[
             {
               q: "Are there any hidden extras?",
-              a: `No. The price you see is the price you pay for the certificate, [including travel within our London and Essex area and VAT. Client to confirm.] Extra appliances and consumer units are priced on this page, so you can work out the full cost before you book.\n\nIf our engineer finds something that needs fixing, that is separate from the certificate, and we never carry out work without your approval. You receive a fixed quote for the repair, usually the same day, and you are free to use us or another qualified engineer. If an appliance is dangerous, the engineer will make it safe before leaving, as the law requires, [and this is not charged as extra work. Client to confirm.]`,
+              a: `No. The price you see is the price you pay for the certificate, [including travel within Greater London and VAT. Client to confirm.] Extra appliances and consumer units are priced on this page, so you can work out the full cost before you book.\n\nIf our engineer finds something that needs fixing, that is separate from the certificate, and we never carry out work without your approval. You receive a fixed quote for the repair, usually the same day, and you are free to use us or another qualified engineer. If an appliance is dangerous, the engineer will make it safe before leaving, as the law requires, [and this is not charged as extra work. Client to confirm.]`,
             },
             {
               q: "When do I pay?",

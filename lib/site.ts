@@ -21,6 +21,14 @@ export const site = {
   reviewCount: "[XX]",
   liability: "£[X]m",
   quoteResponse: "[X working hours]",
+  /** 24/7 emergency line (dedicated SIM forwarding to the on-call engineer). */
+  emergency: {
+    phone: "[0800 XXX XXXX]",
+    phoneHref: "tel:",
+    /** Must be true at all times or removed before go-live. */
+    engineersAvailable: "[3]",
+    services: "gas, electrical or [plumbing]",
+  },
   registrations: {
     gasSafe: "[XXXXXX]",
     napit: "[XXXXXX]",
@@ -61,6 +69,7 @@ export const mainNav: NavItem[] = [
   { label: "Certificates", href: "/landlord-certificates" },
   { label: "Gas", href: "/gas" },
   { label: "Electrical", href: "/electrical" },
+  { label: "Fire alarms", href: "/fire-alarms" },
   { label: "Letting agents", href: "/letting-agents" },
   { label: "Pricing", href: "/pricing" },
   { label: "Guides", href: "/guides" },
@@ -76,6 +85,16 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
       { label: "Landlord Bundle", href: "/landlord-certificates/landlord-bundle" },
       { label: "Smoke and CO alarms", href: "/landlord-certificates/smoke-co-alarms" },
       { label: "Remedial works", href: "/remedial-works" },
+    ],
+  },
+  {
+    title: "Services",
+    links: [
+      { label: "Fire alarms and panels", href: "/fire-alarms" },
+      { label: "Boiler installation", href: "/boiler-installation" },
+      { label: "Boiler servicing", href: "/gas" },
+      { label: "Electrical work", href: "/electrical" },
+      { label: "Maintenance plan", href: "/maintenance-plan" },
     ],
   },
   {

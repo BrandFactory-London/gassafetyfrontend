@@ -229,8 +229,9 @@ body {
 }
 .fd-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 30px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: 8px clamp(16px, 1.6vw, 28px);
   font-size: 15px;
   font-weight: 500;
 }
@@ -243,11 +244,13 @@ body {
   color: var(--fd-oxblood);
 }
 .fd-header-actions {
+  white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 20px;
 }
 .fd-header-phone {
+  white-space: nowrap;
   font-weight: 600;
   font-size: 15px;
   color: var(--fd-ink);
@@ -297,7 +300,13 @@ body {
   margin-top: 14px;
   border-bottom: none;
 }
-@media (max-width: 1080px) {
+/* The urgent banner carries a number, so the header drops its phone number before wrapping. */
+@media (max-width: 1520px) {
+  .fd-header-phone {
+    display: none;
+  }
+}
+@media (max-width: 1280px) {
   .fd-nav,
   .fd-header-actions {
     display: none;
@@ -1631,6 +1640,239 @@ a.chip:hover {
   background-color: rgba(201, 165, 90, 0.1);
 }
 
+/* Urgent call-out banner (above the header) */
+.fd-urgent {
+  background: var(--fd-sign-red);
+  color: var(--fd-white);
+  font-size: 14px;
+  line-height: 1.3;
+}
+.fd-urgent-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  min-height: 36px;
+  padding-block: 6px;
+  text-align: center;
+}
+.fd-urgent .fd-pulse-dot {
+  background: var(--fd-white);
+  --fd-pulse: rgba(255, 255, 255, 0.55);
+}
+.fd-urgent-short {
+  display: none;
+}
+.fd-urgent-phone {
+  color: var(--fd-white);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.fd-urgent-phone:hover {
+  color: var(--fd-white);
+  text-decoration-thickness: 2px;
+}
+@media (max-width: 640px) {
+  .fd-urgent-long {
+    display: none;
+  }
+  .fd-urgent-short {
+    display: inline;
+  }
+}
+
+/* Pulsing status dot */
+.fd-pulse-dot {
+  --fd-pulse: rgba(176, 22, 27, 0.5);
+  display: inline-block;
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--fd-sign-red);
+  box-shadow: 0 0 0 0 var(--fd-pulse);
+  animation: fd-pulse 1.6s ease-out infinite;
+}
+@keyframes fd-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--fd-pulse);
+  }
+  70% {
+    box-shadow: 0 0 0 9px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* Emergency button and card (phones only) */
+.fd-sos {
+  display: none;
+}
+@media (max-width: 900px) {
+  .fd-sos {
+    display: block;
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 35;
+    transition: bottom 0.25s ease;
+  }
+  /* Lift above the Get a price bar while it is showing. */
+  body:has(.fd-mobile-bar[data-show="true"]) .fd-sos {
+    bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+  }
+}
+.fd-sos-button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e0353a, var(--fd-sign-red) 60%, #7d0e12);
+  color: var(--fd-white);
+  box-shadow:
+    0 10px 24px -8px rgba(22, 24, 26, 0.55),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.fd-sos-button svg {
+  position: relative;
+  animation: fd-beacon 1.6s ease-in-out infinite;
+}
+.fd-sos-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(176, 22, 27, 0.55);
+  animation: fd-ring 1.6s ease-out infinite;
+}
+@keyframes fd-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(176, 22, 27, 0.55);
+  }
+  80%,
+  100% {
+    box-shadow: 0 0 0 18px rgba(176, 22, 27, 0);
+  }
+}
+@keyframes fd-beacon {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    opacity: 0.85;
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(255, 236, 200, 0.95));
+    opacity: 1;
+  }
+}
+.fd-sos-button:focus-visible {
+  outline: 3px solid var(--fd-brass);
+  outline-offset: 3px;
+}
+.fd-sos-card {
+  position: absolute;
+  right: 0;
+  bottom: 76px;
+  width: min(340px, calc(100vw - 32px));
+  background: var(--fd-white);
+  color: var(--fd-ink);
+  border-top: 4px solid var(--fd-sign-red);
+  border-radius: 6px;
+  padding: 22px 20px 18px;
+  box-shadow: 0 24px 48px -16px rgba(22, 24, 26, 0.45);
+  animation: fd-card-in 0.22s ease-out;
+}
+.fd-sos-card:focus {
+  outline: none;
+}
+@keyframes fd-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fd-sos-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--fd-ink-muted);
+  cursor: pointer;
+}
+.fd-sos-close:hover {
+  background: var(--fd-ground);
+  color: var(--fd-ink);
+}
+.fd-sos-kicker {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fd-sign-red);
+}
+.fd-sos-title {
+  margin: 0 36px 8px 0;
+  font-family: var(--fd-display);
+  font-stretch: 108%;
+  font-weight: 800;
+  font-size: 21px;
+  line-height: 1.15;
+}
+.fd-sos-text {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--fd-ink-body);
+}
+.fd-sos-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  background: #fbeceb;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fd-bad);
+}
+.fd-sos-call {
+  width: 100%;
+  background: var(--fd-sign-red);
+  color: var(--fd-white);
+  font-size: 17px;
+}
+.fd-sos-call:hover {
+  background: #8e1116;
+  color: var(--fd-white);
+}
+.fd-sos-safety {
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fd-ink-muted);
+}
+.fd-sos-safety a {
+  color: var(--fd-ink);
+  font-weight: 700;
+}
+
 /* Reduced motion: no lifts, sweeps or fades. Colour changes still show, instantly. */
 @media (prefers-reduced-motion: reduce) {
   .fd-grow,
@@ -1655,5 +1897,14 @@ a.chip:hover {
   .fd-btn:hover,
   .btn:hover {
     translate: none;
+  }
+  .fd-pulse-dot,
+  .fd-sos-ring,
+  .fd-sos-button svg,
+  .fd-sos-card {
+    animation: none;
+  }
+  .fd-sos {
+    transition: none;
   }
 }

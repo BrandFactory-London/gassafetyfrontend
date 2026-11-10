@@ -153,7 +153,7 @@ export default async function AreaPage({ params }: Props) {
               },
               {
                 q: "Do you charge extra for travel?",
-                a: `[No. ${area.name} is inside our standard area, so the prices above include travel.]\n\n[There is no congestion charge, ULEZ or parking surcharge added to your invoice. Client to confirm.] If parking is limited near the property, for example in a residents' permit zone, let us know when you book and we will plan around it.\n\nThe same fixed prices apply across every London and Essex area we cover, so a check in ${area.name} costs the same as anywhere else on our list. Extra appliances and consumer units are priced on our pricing page, so you can see the full cost before you book.`,
+                a: `[No. ${area.name} is inside our standard area, so the prices above include travel.]\n\n[There is no congestion charge, ULEZ or parking surcharge added to your invoice. Client to confirm.] If parking is limited near the property, for example in a residents' permit zone, let us know when you book and we will plan around it.\n\nThe same fixed prices apply across every London area we cover, so a check in ${area.name} costs the same as anywhere else on our list. Extra appliances and consumer units are priced on our pricing page, so you can see the full cost before you book.`,
               },
             ]}
           />

@@ -73,13 +73,13 @@ const portfolio = [
     epc: ["D", "ok"],
   },
   {
-    addr: "5 Mill Close, Chelmsford",
+    addr: "5 Mill Close, Walthamstow",
     gas: ["Valid", "ok"],
     eicr: ["Valid", "ok"],
     epc: ["Renew", "due"],
   },
   {
-    addr: "88 Albion Street, Southend",
+    addr: "88 Albion Street, Ilford",
     gas: ["21 days", "due"],
     eicr: ["Valid", "ok"],
     epc: ["C", "ok"],
@@ -100,8 +100,7 @@ const reviewSlots = [
 ];
 
 export default function HomePage() {
-  const london = areas.filter((a) => a.region === "London");
-  const essex = areas.filter((a) => a.region === "Essex");
+  const london = areas;
 
   return (
     <>
@@ -433,29 +432,14 @@ export default function HomePage() {
 
       <section className="fd-wrap fd-section" aria-labelledby="areas-heading">
         <h2 id="areas-heading" className="fd-h2">
-          East London and Essex, street by street.
+          Greater London, street by street.
         </h2>
-        <div className="fd-split" style={{ marginTop: 44, alignItems: "start", gap: 40 }}>
-          <div>
-            <h3 className="fd-area-label">London</h3>
-            <div className="fd-plates">
-              {london.map((a) => (
-                <Link key={a.slug} href={`/areas/${a.slug}`} className="fd-plate">
-                  {a.name} <span className="fd-plate-pc">{a.postcodes[0]}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="fd-area-label">Essex</h3>
-            <div className="fd-plates">
-              {essex.map((a) => (
-                <Link key={a.slug} href={`/areas/${a.slug}`} className="fd-plate">
-                  {a.name} <span className="fd-plate-pc">{a.postcodes[0]}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
+        <div className="fd-plates" style={{ marginTop: 44 }}>
+          {london.map((a) => (
+            <Link key={a.slug} href={`/areas/${a.slug}`} className="fd-plate">
+              {a.name} <span className="fd-plate-pc">{a.postcodes[0]}</span>
+            </Link>
+          ))}
         </div>
       </section>
 

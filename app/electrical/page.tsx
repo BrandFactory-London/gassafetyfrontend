@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { prices } from "@/lib/site";
-import { BoltIcon, DocIcon, WrenchIcon } from "@/components/icons";
+import { AlarmIcon, BoltIcon, DocIcon, WrenchIcon } from "@/components/icons";
 import { Button, CtaSection, SectionHead, ServiceCard } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Electricians for Landlords, London and Essex",
+  title: "Electricians for Landlords, London",
   description:
-    "NAPIT registered electricians for EICRs, rewires, fuse board upgrades, lighting and commercial electrical work across London and Essex.",
+    "NAPIT registered electricians for EICRs, rewires, fuse board upgrades, lighting and commercial electrical work across London.",
 };
 
 // Draft copy: full Batch 2 copy to follow.
@@ -35,6 +35,14 @@ export default function ElectricalHubPage() {
             price={prices.eicr}
             href="/landlord-certificates/eicr"
             linkLabel="EICR"
+          />
+          <ServiceCard
+            icon={<AlarmIcon />}
+            tile="alarm"
+            title="Fire alarms and panels"
+            text="Panel and interlinked systems for HMOs, flats and buildings with shops below."
+            href="/fire-alarms"
+            linkLabel="Fire alarms"
           />
           <ServiceCard
             icon={<WrenchIcon />}

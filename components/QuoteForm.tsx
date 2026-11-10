@@ -36,6 +36,18 @@ const SERVICES = [
     price: prices.boilerService,
   },
   {
+    id: "boiler-install",
+    label: "Boiler installation",
+    sub: "Fixed quote after a survey",
+    price: "Quote",
+  },
+  {
+    id: "fire",
+    label: "Fire alarm system or panel",
+    sub: "HMOs, flats and buildings with shops below",
+    price: "Quote",
+  },
+  {
     id: "other",
     label: "Repairs or remedial work",
     sub: "Tell us more in the next step",
@@ -169,7 +181,7 @@ export default function QuoteForm() {
                 value={postcode}
                 onChange={(e) => setPostcode(e.target.value)}
               />
-              <span className="hint">We cover all London boroughs and most of Essex.</span>
+              <span className="hint">We cover every Greater London borough.</span>
             </div>
             <fieldset style={{ border: 0, margin: 0, padding: 0 }}>
               <legend className="label" style={{ marginBottom: 10 }}>

@@ -14,9 +14,9 @@ import {
 } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Smoke and CO Alarms for Landlords, London and Essex",
+  title: "Smoke and CO Alarms for Landlords, London",
   description:
-    "Smoke and carbon monoxide alarms checked and fitted to the current landlord rules across London and Essex. Fixed prices, tenant access arranged.",
+    "Smoke and carbon monoxide alarms checked and fitted to the current landlord rules across London. Fixed prices, tenant access arranged.",
 };
 
 export default function AlarmsPage() {
