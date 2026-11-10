@@ -175,6 +175,7 @@ export default function EicrPage() {
       <section className="container section split">
         <div className="panel-white row" style={{ flex: '1 1 420px', gap: 24, flexWrap: 'nowrap', padding: 24 }}>
           <div className="img-slot" style={{ width: 120, height: 140, flex: 'none', padding: 8, fontSize: 12, boxShadow: 'none' }}>
+            {/* eslint-disable-next-line @next/next/no-img-element -- placeholder slot; moves to next/image when real photos arrive (KSF-TKT-83) */}
             {images.engineer.src ? <img src={images.engineer.src} alt={images.engineer.alt} /> : '[Engineer photo]'}
           </div>
           <div>

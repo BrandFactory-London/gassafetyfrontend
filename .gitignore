@@ -1,9 +1,30 @@
-node_modules
-.next
-out
-.vercel
+# Dependencies and builds
+node_modules/
+.next/
+out/
+dist*/
+coverage/
+playwright-report/
+test-results/
 *.tsbuildinfo
-.env*.local
+next-env.d.ts
+
+# Environment and secrets: only .env.example is committed
+.env*
+!.env.example
+*.pem
+
+# Platform
+.vercel/
+supabase/.temp/
+
+# OS and logs
 .DS_Store
 npm-debug.log*
 /scripts/out
+
+# Impeccable local state (the surface briefs are committed)
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/questions/
+.impeccable/build/

@@ -194,6 +194,7 @@ export function ImageBox({ slot, ratio = '4 / 5', children }: { slot: ImageSlot;
   return (
     <div style={{ position: 'relative' }}>
       <div className={slot.src ? 'img-slot has-img' : 'img-slot'} style={{ aspectRatio: ratio }}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- placeholder slot; moves to next/image when real photos arrive (KSF-TKT-83) */}
         {slot.src ? <img src={slot.src} alt={slot.alt} /> : <span>[Photo: {slot.brief}]</span>}
       </div>
       {children}
