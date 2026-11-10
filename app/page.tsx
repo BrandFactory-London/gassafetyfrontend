@@ -1,20 +1,104 @@
 import Link from "next/link";
 import { areas } from "@/lib/areas";
-import { images } from "@/lib/images";
-import { prices } from "@/lib/site";
-import { AlarmIcon, BoltIcon, FlameIcon, TickCircleIcon } from "@/components/icons";
-import {
-  Button,
-  CtaSection,
-  FeaturePanel,
-  ImageBox,
-  Reviews,
-  SectionHead,
-  ServiceCard,
-  Steps,
-  TrustBar,
-} from "@/components/ui";
-import PostcodeForm from "@/components/PostcodeForm";
+import { prices, site } from "@/lib/site";
+import MobileCtaBar from "@/components/fd/MobileCtaBar";
+import PostcodeLetterbox from "@/components/fd/PostcodeLetterbox";
+
+// Validity drawn to scale across 10 years (Locked decision, 10 Nov 2026).
+const certificates = [
+  {
+    name: "Gas Safety (CP12)",
+    rule: "Every gas appliance, flue and pipework checked every 12 months. Your tenant gets a copy within 28 days.",
+    every: "Every 12 months",
+    years: 1,
+    price: prices.cp12,
+    href: "/landlord-certificates/gas-safety-certificate",
+  },
+  {
+    name: "EICR",
+    rule: "Fixed wiring inspected at least every 5 years. Any C1 or C2 fault is fixed within 28 days.",
+    every: "At least every 5 years",
+    years: 5,
+    price: prices.eicr,
+    href: "/landlord-certificates/eicr",
+  },
+  {
+    name: "EPC",
+    rule: "Needed before you let, rated A to G, with a minimum rating to let.",
+    every: "Lasts 10 years",
+    years: 10,
+    price: prices.epc,
+    href: "/book",
+    linkLabel: "Get an EPC price",
+  },
+  {
+    name: "Smoke and CO alarms",
+    rule: "A smoke alarm on every storey and a CO alarm by every fixed combustion appliance, checked at the start of each tenancy.",
+    every: "Every new tenancy",
+    years: 0.4,
+    price: prices.alarmCheck,
+    href: "/landlord-certificates/smoke-co-alarms",
+  },
+];
+
+const steps = [
+  {
+    title: "Post your postcode",
+    text: "Pick the certificates you need and see a fixed price before you commit.",
+  },
+  {
+    title: "We call your tenant",
+    text: "We agree a time with them directly. You do not need to be there or pass on messages.",
+  },
+  {
+    title: "One visit, everything",
+    text: "A registered engineer does gas, electrics, alarms and EPC in a single appointment.",
+  },
+  {
+    title: "On record in 24 hours",
+    text: "Certificates are emailed to you, the tenant copy is sent for you, and we remind you before renewal.",
+  },
+];
+
+const portfolio = [
+  {
+    addr: "Flat 2, Elm Road, E17",
+    gas: ["Valid", "ok"],
+    eicr: ["34 days", "due"],
+    epc: ["C", "ok"],
+  },
+  {
+    addr: "12 Park Lane, Romford",
+    gas: ["Expired", "bad"],
+    eicr: ["Valid", "ok"],
+    epc: ["D", "ok"],
+  },
+  {
+    addr: "5 Mill Close, Chelmsford",
+    gas: ["Valid", "ok"],
+    eicr: ["Valid", "ok"],
+    epc: ["Renew", "due"],
+  },
+  {
+    addr: "88 Albion Street, Southend",
+    gas: ["21 days", "due"],
+    eicr: ["Valid", "ok"],
+    epc: ["C", "ok"],
+  },
+] as const;
+
+const guides = [
+  ["Landlord gas safety certificate: the complete guide", "Gas safety"],
+  ["EICR for landlords: rules, costs and what happens if it fails", "Electrical"],
+  ["C1, C2 and FI codes explained", "Electrical"],
+  ["Renters' Rights Act: what it means for your certificates", "Regulation"],
+];
+
+const reviewSlots = [
+  "[Reviewer name], landlord in [area]",
+  "[Reviewer name], letting agent in [area]",
+  "[Reviewer name], landlord in [area]",
+];
 
 export default function HomePage() {
   const london = areas.filter((a) => a.region === "London");
@@ -22,250 +106,359 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="container split hero">
-        <div style={{ flex: "1 1 520px" }}>
-          <p className="eyebrow" style={{ marginBottom: 20 }}>
-            London and Essex · Gas Safe, NAPIT and NIC registered
-          </p>
-          <h1 className="display-xl">
-            Gas and electrical certificates for landlords, done properly and on record.
-          </h1>
-          <p className="lead">
-            CP12s, EICRs and alarm checks in one visit. Fixed prices up front, we arrange access
-            with your tenant, and your certificate is emailed within 24 hours.
-          </p>
-          <PostcodeForm id="hero-postcode" />
-          <div className="row small" style={{ marginTop: 28 }}>
-            <span>
-              Gas Safety Certificate{" "}
-              <strong style={{ color: "#0C3536" }}>from {prices.cp12}</strong>
-            </span>
-            <span>
-              EICR <strong style={{ color: "#0C3536" }}>from {prices.eicr}</strong>
-            </span>
-            <span>
-              Landlord Bundle <strong style={{ color: "#0C3536" }}>from {prices.bundle}</strong>
-            </span>
+      <section className="fd-wrap fd-hero">
+        <div className="fd-hero-copy">
+          <div className="fd-hero-intro">
+            <p className="fd-kicker fd-kicker-accent">Gas · Electrical · EPC · Alarms</p>
+            <h1 className="fd-h1">
+              We&apos;ll knock.
+              <br />
+              You won&apos;t have&nbsp;to.
+            </h1>
+          </div>
+          <div className="fd-hero-lead">
+            <p className="fd-lead" style={{ maxWidth: 520 }}>
+              We arrange access with your tenant, complete your landlord certificates in one visit,
+              and your paperwork is on record within 24 hours.
+            </p>
+          </div>
+          <div className="fd-hero-prices">
+            <table className="fd-prices">
+              <caption className="sr-only">Prices from</caption>
+              <tbody>
+                <tr>
+                  <td>Gas Safety Certificate (CP12)</td>
+                  <td>from {prices.cp12}</td>
+                </tr>
+                <tr>
+                  <td>EICR</td>
+                  <td>from {prices.eicr}</td>
+                </tr>
+                <tr>
+                  <td>EPC</td>
+                  <td>from {prices.epc}</td>
+                </tr>
+                <tr>
+                  <td>Landlord Bundle, gas and electrical in one visit</td>
+                  <td>from {prices.bundle}</td>
+                </tr>
+              </tbody>
+            </table>
+            <p className="fd-small" style={{ marginTop: 20 }}>
+              Gas Safe {site.registrations.gasSafe} · NICEIC {site.registrations.nic} · Insured to{" "}
+              {site.liability} · Prices are placeholders
+            </p>
           </div>
         </div>
-        <div style={{ flex: "1 1 420px" }}>
-          <ImageBox slot={images.hero}>
-            <div className="float-card" style={{ left: -24, bottom: 32 }}>
-              <TickCircleIcon size={36} />
-              <div>
-                <div style={{ fontWeight: 600, fontSize: 15, color: "#0C3536" }}>
-                  EICR issued: Satisfactory
+
+        <div className="fd-doorway">
+          <div className="fd-keystone" aria-hidden="true" />
+          <div className="fd-surround">
+            <div className="fd-reveal">
+              <div className="fd-fanlight" aria-hidden="true">
+                <div className="fd-fanglow" />
+                <div className="fd-fanbars" />
+                <div className="fd-fanhub" />
+                <span className="fd-numeral">17</span>
+              </div>
+              <div className="fd-leaf">
+                <div className="fd-knockmount" aria-hidden="true" />
+                <div className="fd-knocker" aria-hidden="true" />
+                <div className="fd-panels" aria-hidden="true">
+                  <div className="fd-panel" />
+                  <div className="fd-panel" />
                 </div>
-                <div className="caption">Emailed to landlord and tenant</div>
+                <PostcodeLetterbox
+                  id="door-postcode"
+                  variant="door"
+                  note="No need to be home. We call your tenant."
+                />
+                <div className="fd-yale" aria-hidden="true" />
+                <div className="fd-panels fd-panels-lower" aria-hidden="true">
+                  <div className="fd-panel" />
+                  <div className="fd-panel" />
+                </div>
               </div>
             </div>
-          </ImageBox>
-        </div>
-      </section>
+            <div className="fd-step" aria-hidden="true" />
+          </div>
 
-      <TrustBar />
-
-      <section className="container section" style={{ paddingTop: 120 }}>
-        <SectionHead
-          title="The certificates your rental needs"
-          intro="Each one explained in plain English, priced up front and kept on record."
-        />
-        <div className="grid-auto">
-          <ServiceCard
-            icon={<FlameIcon />}
-            tile="gas"
-            title="Gas Safety Certificate (CP12)"
-            text="Required every 12 months for every gas appliance, flue and pipework in the property."
-            price={prices.cp12}
-            href="/landlord-certificates/gas-safety-certificate"
-            linkLabel="Book a CP12"
-          />
-          <ServiceCard
-            icon={<BoltIcon />}
-            tile="electric"
-            title="EICR"
-            text="An electrical safety report required at least every 5 years. Any C1 or C2 faults must be fixed within 28 days."
-            price={prices.eicr}
-            href="/landlord-certificates/eicr"
-            linkLabel="Book an EICR"
-          />
-          <ServiceCard
-            featured
-            badge="Best value"
-            title="Landlord Bundle"
-            text={`Gas and electrical certificates in one visit. One booking, one invoice, save ${prices.bundleSaving}.`}
-            price={prices.bundle}
-            href="/landlord-certificates/landlord-bundle"
-            linkLabel="Book the bundle"
-          />
-          <ServiceCard
-            icon={<AlarmIcon />}
-            tile="alarm"
-            title="Smoke and CO alarms"
-            text="One working smoke alarm on every storey, and a CO alarm in every room with a boiler, gas fire or wood burner."
-            price={prices.alarmCheck}
-            href="/landlord-certificates/smoke-co-alarms"
-            linkLabel="Book an alarm check"
-          />
-        </div>
-      </section>
-
-      <section className="container section">
-        <SectionHead title="How it works" />
-        <Steps
-          items={[
-            {
-              title: "Request a price",
-              text: "Tell us the postcode and property size. You see the price before you commit.",
-            },
-            {
-              title: "We arrange the visit",
-              text: "We contact your tenant to agree a time, and a registered engineer attends.",
-            },
-            {
-              title: "Certificate on record",
-              text: "Your certificate is emailed within 24 hours, with a copy ready for your tenant.",
-            },
-          ]}
-        />
-      </section>
-
-      <section className="container section">
-        <FeaturePanel>
-          <div className="split">
-            <div>
-              <h2 className="heading-lg" style={{ marginBottom: 16 }}>
-                Is your rental compliant?
-              </h2>
-              <p className="on-dark" style={{ fontSize: 18, marginBottom: 28 }}>
-                Answer six quick questions about your property and get a checklist of what is in
-                date, what is due and what needs action now.
-              </p>
-              <Button href="/compliance-check">Start the 60-second check</Button>
+          <section className="fd-status-card" aria-label="Example property status">
+            <div className="fd-status-head">
+              <span style={{ fontWeight: 600, fontSize: 15 }}>Flat 2, Elm Road, E17</span>
+              <span className="fd-small" style={{ fontSize: 12 }}>
+                Example
+              </span>
             </div>
-            <div style={{ background: "#fff", color: "#182826", borderRadius: 14, padding: 28 }}>
-              <p style={{ fontWeight: 600, color: "#0C3536", marginBottom: 12 }}>Example result</p>
-              <ResultRow label="Gas Safety Certificate" pill="valid" status="In date" />
-              <ResultRow label="EICR" pill="due" status="Due within 60 days" />
-              <ResultRow label="CO alarm by boiler" pill="action" status="Action needed" last />
+            <div style={{ marginTop: 12 }}>
+              <div className="fd-status-row">
+                <span>Gas Safety (CP12)</span>
+                <span className="fd-ok">Valid to Mar 2027</span>
+              </div>
+              <div className="fd-status-row">
+                <span>EICR</span>
+                <span className="fd-due">Due in 34 days</span>
+              </div>
+              <div className="fd-status-row">
+                <span>EPC</span>
+                <span className="fd-ok">C, valid to 2033</span>
+              </div>
+              <div className="fd-status-row">
+                <span>CO alarm</span>
+                <span className="fd-bad">Fit on next visit</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section className="fd-trust" aria-label="Registrations and insurance">
+        <div className="fd-wrap fd-cols-4">
+          <div>
+            <div style={{ fontWeight: 700 }}>Gas Safe registered</div>
+            <div className="fd-small" style={{ fontSize: 15 }}>
+              No. {site.registrations.gasSafe} ·{" "}
+              <a className="fd-link" href={site.registers.gasSafe}>
+                check
+              </a>
             </div>
           </div>
-        </FeaturePanel>
+          <div>
+            <div style={{ fontWeight: 700 }}>NICEIC approved</div>
+            <div className="fd-small" style={{ fontSize: 15 }}>
+              No. {site.registrations.nic} ·{" "}
+              <a className="fd-link" href={site.registers.nic}>
+                check
+              </a>
+            </div>
+          </div>
+          <div>
+            <div style={{ fontWeight: 700 }}>Fully insured</div>
+            <div className="fd-small" style={{ fontSize: 15 }}>
+              {site.liability} public liability
+            </div>
+          </div>
+          <div>
+            <div style={{ fontWeight: 700 }}>{site.rating} on Google</div>
+            <div className="fd-small" style={{ fontSize: 15 }}>
+              from {site.reviewCount} reviews
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section className="container section split">
-        <div style={{ flex: "1 1 380px" }}>
-          <p className="eyebrow" style={{ marginBottom: 12 }}>
-            Coming soon
-          </p>
-          <h2 className="heading-lg" style={{ marginBottom: 16 }}>
-            Every property, every certificate, one place.
-          </h2>
-          <p className="body">
-            Your landlord account will keep every certificate on file and remind you 60, 30 and 7
-            days before anything is due.
-          </p>
+      <section className="fd-wrap fd-section" aria-labelledby="how-heading">
+        <p className="fd-kicker">How it works</p>
+        <h2 id="how-heading" className="fd-h2" style={{ maxWidth: 820 }}>
+          From your postcode to a certificate on file. You never set foot on the path.
+        </h2>
+        <div
+          className="fd-tilerule fd-tilerule-thick fd-grow"
+          aria-hidden="true"
+          style={{ margin: "56px 0 40px" }}
+        />
+        <ol className="fd-steps fd-cols-4">
+          {steps.map((s, i) => (
+            <li key={s.title}>
+              <div className="fd-step-num" aria-hidden="true">
+                {i + 1}
+              </div>
+              <h3 className="fd-h3">{s.title}</h3>
+              <p className="fd-body">{s.text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="fd-wrap fd-section" aria-labelledby="certs-heading">
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            gap: 24,
+          }}
+        >
+          <div>
+            <p className="fd-kicker">The certificates</p>
+            <h2 id="certs-heading" className="fd-h2" style={{ maxWidth: 760 }}>
+              What your rental needs, and how long each one lasts.
+            </h2>
+          </div>
+          <Link href="/pricing" className="fd-link">
+            See full pricing
+          </Link>
         </div>
-        <div style={{ flex: "1 1 560px" }} className="table-wrap">
-          <table className="table">
+        <div style={{ marginTop: 48, borderTop: "2px solid var(--fd-ink)" }}>
+          <div className="fd-sched-head" aria-hidden="true">
+            <span>Certificate</span>
+            <span>The rule</span>
+            <span>Validity, to scale (10 years)</span>
+            <span>Price</span>
+            <span />
+          </div>
+          {certificates.map((c) => (
+            <div key={c.name} className="fd-sched-row">
+              <h3 className="fd-h3">{c.name}</h3>
+              <p className="fd-body fd-sched-rule" style={{ fontSize: 15 }}>
+                {c.rule}
+              </p>
+              <div className="fd-sched-bar">
+                <div className="fd-bar-track">
+                  <div className="fd-bar fd-grow" style={{ width: `${(c.years / 10) * 100}%` }} />
+                </div>
+                <div className="fd-small" style={{ marginTop: 6 }}>
+                  {c.every}
+                </div>
+              </div>
+              <span className="fd-sched-price">{c.price}</span>
+              <Link href={c.href} className="fd-link" style={{ fontSize: 15 }}>
+                {"linkLabel" in c ? c.linkLabel : `${c.name} details`}
+              </Link>
+            </div>
+          ))}
+          <div className="fd-sched-row fd-sched-bundle">
+            <h3 className="fd-h3">Landlord Bundle</h3>
+            <p className="fd-body fd-sched-rule" style={{ fontSize: 15 }}>
+              Gas Safety Certificate and EICR together. One booking, one invoice, one tenant
+              appointment. Add EPC and alarms to the same visit.
+            </p>
+            <div className="fd-sched-bar fd-small" style={{ fontSize: 14 }}>
+              Save {prices.bundleSaving} against booking separately
+            </div>
+            <span className="fd-sched-price">{prices.bundle}</span>
+            <Link
+              href="/book?service=bundle"
+              className="fd-btn fd-btn-primary"
+              style={{ fontSize: 15 }}
+            >
+              Book bundle
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="fd-dark"
+        style={{ marginTop: "var(--fd-section)" }}
+        aria-labelledby="check-heading"
+      >
+        <div className="fd-wrap fd-split" style={{ paddingBlock: 112 }}>
+          <div>
+            <p className="fd-kicker">60-second check</p>
+            <h2 id="check-heading" className="fd-h2">
+              Is your rental compliant right now?
+            </h2>
+            <p className="fd-lead" style={{ marginTop: 22, maxWidth: 500, fontSize: 18 }}>
+              Answer six questions about the property. You get a plain-English list of what is in
+              date, what is due and what needs doing now.
+            </p>
+            <Link
+              href="/compliance-check"
+              className="fd-btn fd-btn-primary"
+              style={{ marginTop: 34, padding: "16px 24px" }}
+            >
+              Start the check
+            </Link>
+          </div>
+          <div className="fd-card" aria-label="Example result">
+            <div className="fd-status-head">
+              <span style={{ fontWeight: 700 }}>Your result</span>
+              <span className="fd-small" style={{ fontSize: 12 }}>
+                Example
+              </span>
+            </div>
+            <div style={{ marginTop: 14, fontSize: 15 }}>
+              <div className="fd-status-row" style={{ padding: "13px 0", fontSize: 15 }}>
+                <span>Gas Safety Certificate</span>
+                <span className="fd-ok">In date</span>
+              </div>
+              <div className="fd-status-row" style={{ padding: "13px 0", fontSize: 15 }}>
+                <span>EICR</span>
+                <span className="fd-due">Due within 60 days</span>
+              </div>
+              <div className="fd-status-row" style={{ padding: "13px 0", fontSize: 15 }}>
+                <span>EPC</span>
+                <span className="fd-ok">In date</span>
+              </div>
+              <div className="fd-status-row" style={{ padding: "13px 0", fontSize: 15 }}>
+                <span>CO alarm by boiler</span>
+                <span className="fd-bad">Action needed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="fd-wrap fd-section fd-split" aria-labelledby="agents-heading">
+        <div>
+          <p className="fd-kicker">Letting agents and portfolios</p>
+          <h2 id="agents-heading" className="fd-h2">
+            Every property, every certificate, one list.
+          </h2>
+          <p className="fd-lead" style={{ marginTop: 22, maxWidth: 500, fontSize: 18 }}>
+            Volume pricing, tenant access handled for you, one monthly invoice. Your account will
+            show what is due across every address, with reminders 60, 30 and 7 days out.
+          </p>
+          <Link
+            href="/letting-agents"
+            className="fd-link"
+            style={{ display: "inline-block", marginTop: 30 }}
+          >
+            Talk to us about an account
+          </Link>
+        </div>
+        <div className="fd-table-box">
+          <table className="fd-table">
+            <caption className="sr-only">Example portfolio</caption>
             <thead>
               <tr>
                 <th scope="col">Property</th>
                 <th scope="col">Gas</th>
                 <th scope="col">EICR</th>
-                <th scope="col">Alarms</th>
+                <th scope="col">EPC</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Flat 2, Elm Road, E17</td>
-                <td>
-                  <span className="pill pill-valid">Valid</span>
-                </td>
-                <td>
-                  <span className="pill pill-due">34 days</span>
-                </td>
-                <td>
-                  <span className="pill pill-valid">Valid</span>
-                </td>
-              </tr>
-              <tr>
-                <td>12 Park Lane, Romford</td>
-                <td>
-                  <span className="pill pill-action">Expired</span>
-                </td>
-                <td>
-                  <span className="pill pill-valid">Valid</span>
-                </td>
-                <td>
-                  <span className="pill pill-valid">Valid</span>
-                </td>
-              </tr>
-              <tr>
-                <td>5 Mill Close, Chelmsford</td>
-                <td>
-                  <span className="pill pill-valid">Valid</span>
-                </td>
-                <td>
-                  <span className="pill pill-valid">Valid</span>
-                </td>
-                <td>
-                  <span className="pill pill-due">Check due</span>
-                </td>
-              </tr>
+              {portfolio.map((p) => (
+                <tr key={p.addr}>
+                  <td style={{ fontWeight: 600 }}>{p.addr}</td>
+                  <td className={`fd-${p.gas[1]}`}>{p.gas[0]}</td>
+                  <td className={`fd-${p.eicr[1]}`}>{p.eicr[0]}</td>
+                  <td className={`fd-${p.epc[1]}`}>{p.epc[0]}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
+          <p className="fd-small" style={{ margin: 0, padding: "10px 0 14px", fontSize: 12 }}>
+            Example portfolio · accounts arrive with the landlord portal
+          </p>
         </div>
       </section>
 
-      <section className="container section">
-        <div className="panel-amber split" style={{ gap: 28 }}>
-          <div style={{ flex: "1 1 520px" }}>
-            <h2 className="heading-md" style={{ marginBottom: 10 }}>
-              For letting agents and portfolio landlords
-            </h2>
-            <p className="body">
-              Volume pricing, tenant access handled for you, and one monthly invoice across London
-              and Essex.
-            </p>
-          </div>
-          <div style={{ flex: "0 0 auto" }}>
-            <Button href="/letting-agents" variant="secondary" size="md">
-              Talk to us about an account
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <section className="container section">
-        <SectionHead title="Covering London and Essex" />
-        <div className="split split-top" style={{ gap: 40 }}>
+      <section className="fd-wrap fd-section" aria-labelledby="areas-heading">
+        <p className="fd-kicker">Areas we cover</p>
+        <h2 id="areas-heading" className="fd-h2">
+          East London and Essex, street by street.
+        </h2>
+        <div className="fd-split" style={{ marginTop: 44, alignItems: "start", gap: 40 }}>
           <div>
-            <h3 className="eyebrow" style={{ fontFamily: "inherit", marginBottom: 14 }}>
-              London
-            </h3>
-            <div className="chips">
+            <h3 className="fd-area-label">London</h3>
+            <div className="fd-plates">
               {london.map((a) => (
-                <Link key={a.slug} href={`/areas/${a.slug}`} className="chip">
-                  {a.name}
+                <Link key={a.slug} href={`/areas/${a.slug}`} className="fd-plate">
+                  {a.name} <span className="fd-plate-pc">{a.postcodes[0]}</span>
                 </Link>
               ))}
-              <Link href="/areas" className="chip">
-                All London boroughs
-              </Link>
             </div>
           </div>
           <div>
-            <h3
-              className="eyebrow"
-              style={{ fontFamily: "inherit", marginBottom: 14, color: "#8A5A00" }}
-            >
-              Essex
-            </h3>
-            <div className="chips">
+            <h3 className="fd-area-label">Essex</h3>
+            <div className="fd-plates">
               {essex.map((a) => (
-                <Link key={a.slug} href={`/areas/${a.slug}`} className="chip">
-                  {a.name}
+                <Link key={a.slug} href={`/areas/${a.slug}`} className="fd-plate">
+                  {a.name} <span className="fd-plate-pc">{a.postcodes[0]}</span>
                 </Link>
               ))}
             </div>
@@ -273,86 +466,63 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section">
-        <SectionHead title="What landlords say" />
-        <Reviews
-          captions={[
-            "[Reviewer name], landlord in [area]",
-            "[Reviewer name], letting agent in [area]",
-            "[Reviewer name], landlord in [area]",
-          ]}
-        />
+      <section className="fd-wrap fd-section" aria-labelledby="reviews-heading">
+        <h2 id="reviews-heading" className="fd-h2">
+          What landlords say
+        </h2>
+        <div className="fd-cols-3" style={{ marginTop: 44 }}>
+          {reviewSlots.map((who, i) => (
+            <figure key={i} className="fd-review">
+              <blockquote>[Real Google review from the client&apos;s profile goes here]</blockquote>
+              <figcaption className="fd-small" style={{ marginTop: 16, fontSize: 14 }}>
+                {who}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
-      <section className="container section">
-        <div className="row" style={{ justifyContent: "space-between", marginBottom: 32 }}>
-          <h2 className="heading-lg">Landlord guides</h2>
-          <Link href="/guides" className="link-strong">
+      <section className="fd-wrap fd-section" aria-labelledby="guides-heading">
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            gap: 16,
+          }}
+        >
+          <h2 id="guides-heading" className="fd-h2">
+            Landlord guides
+          </h2>
+          <Link href="/guides" className="fd-link">
             All guides
           </Link>
         </div>
-        <div className="grid-auto-lg">
-          {[
-            ["Electrical safety", "EICR for landlords: rules, costs and what happens if it fails"],
-            ["Gas safety", "Landlord gas safety certificate: the complete guide"],
-            ["Regulation", "Renters' Rights Act: what it means for your safety certificates"],
-          ].map(([cat, title]) => (
-            <Link
-              key={title}
-              href="/guides"
-              style={{ textDecoration: "none", display: "grid", gap: 14 }}
-            >
-              <div
-                style={{
-                  aspectRatio: "16 / 9",
-                  borderRadius: 10,
-                  background: "linear-gradient(150deg, #E4EFEC 0%, #E2D4C2 100%)",
-                }}
-              />
-              <span className="caption" style={{ color: "#1B7A73", fontWeight: 600 }}>
-                {cat}
-              </span>
-              <span style={{ fontSize: 20, fontWeight: 600, color: "#0C3536", lineHeight: 1.35 }}>
-                {title}
-              </span>
+        <div className="fd-guides">
+          {guides.map(([title, cat]) => (
+            <Link key={title} href="/guides" className="fd-guide">
+              <span className="fd-guide-title">{title}</span>
+              <span className="fd-guide-cat">{cat}</span>
             </Link>
           ))}
         </div>
       </section>
 
-      <CtaSection
-        title="Know your rental is compliant, and have the paperwork to prove it."
-        body="Get a fixed price for your property in under a minute."
-        button="Get a price"
-      />
-    </>
-  );
-}
+      <section className="fd-cta" aria-labelledby="cta-heading">
+        <div className="fd-wrap fd-split" style={{ paddingBlock: 96 }}>
+          <h2 id="cta-heading" className="fd-h2" style={{ fontSize: "clamp(34px, 3.8vw, 56px)" }}>
+            Know it&apos;s done, without being there.
+          </h2>
+          <PostcodeLetterbox
+            id="cta-postcode"
+            variant="band"
+            note="Fixed price before you commit. We arrange the rest with your tenant."
+          />
+        </div>
+      </section>
 
-function ResultRow({
-  label,
-  pill,
-  status,
-  last,
-}: {
-  label: string;
-  pill: "valid" | "due" | "action";
-  status: string;
-  last?: boolean;
-}) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        gap: 12,
-        padding: "14px 0",
-        borderBottom: last ? "none" : "1px solid #EAE3D9",
-        fontSize: 15,
-      }}
-    >
-      <span>{label}</span>
-      <span className={`pill pill-${pill}`}>{status}</span>
-    </div>
+      <MobileCtaBar label={`CP12 from ${prices.cp12}`} />
+    </>
   );
 }
