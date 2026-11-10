@@ -5,6 +5,10 @@ Versions follow semver. The site is pre-launch: nothing has been released or tag
 
 ## [Unreleased]
 
+### Changed
+
+- Homepage: removed the small capitals labels above the hero and section headings (KSF-TKT-83).
+
 ### Added
 
 - New visual system, The Front Door (KSF-TKT-83, ADR 0001): homepage rebuilt with the letterbox postcode door,
