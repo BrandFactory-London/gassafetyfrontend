@@ -1,20 +1,26 @@
-import Link from 'next/link';
-import type { ReactNode } from 'react';
-import type { ImageSlot } from '@/lib/images';
-import { site } from '@/lib/site';
-import { TickCircleIcon, TickIcon } from './icons';
+import Link from "next/link";
+import type { ReactNode } from "react";
+import type { ImageSlot } from "@/lib/images";
+import { site } from "@/lib/site";
+import { TickCircleIcon, TickIcon } from "./icons";
 
 /* Buttons */
 type ButtonProps = {
   href: string;
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'ghost';
-  size?: 'md' | 'lg';
+  variant?: "primary" | "secondary" | "ghost";
+  size?: "md" | "lg";
 };
 
-export function Button({ href, children, variant = 'primary', size = 'lg' }: ButtonProps) {
-  const cls = ['btn', `btn-${variant}`, size === 'lg' && variant !== 'ghost' ? 'btn-lg' : ''].filter(Boolean).join(' ');
-  const external = href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http') || href.startsWith('#');
+export function Button({ href, children, variant = "primary", size = "lg" }: ButtonProps) {
+  const cls = ["btn", `btn-${variant}`, size === "lg" && variant !== "ghost" ? "btn-lg" : ""]
+    .filter(Boolean)
+    .join(" ");
+  const external =
+    href.startsWith("tel:") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("http") ||
+    href.startsWith("#");
   if (external) {
     return (
       <a href={href} className={cls}>
@@ -30,13 +36,13 @@ export function Button({ href, children, variant = 'primary', size = 'lg' }: But
 }
 
 /* Section heading */
-type SectionHeadProps = { eyebrow?: string; title: string; intro?: ReactNode; size?: 'lg' | 'md' };
+type SectionHeadProps = { eyebrow?: string; title: string; intro?: ReactNode; size?: "lg" | "md" };
 
-export function SectionHead({ eyebrow, title, intro, size = 'lg' }: SectionHeadProps) {
+export function SectionHead({ eyebrow, title, intro, size = "lg" }: SectionHeadProps) {
   return (
     <div className="section-head">
       {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-      <h2 className={size === 'lg' ? 'heading-lg' : 'heading-md'}>{title}</h2>
+      <h2 className={size === "lg" ? "heading-lg" : "heading-md"}>{title}</h2>
       {intro ? <p className="body">{intro}</p> : null}
     </div>
   );
@@ -71,20 +77,30 @@ type ServiceCardProps = {
   href: string;
   linkLabel: string;
   icon?: ReactNode;
-  tile?: 'gas' | 'electric' | 'alarm' | 'neutral';
+  tile?: "gas" | "electric" | "alarm" | "neutral";
   featured?: boolean;
   badge?: string;
 };
 
-export function ServiceCard({ title, text, price, href, linkLabel, icon, tile = 'neutral', featured, badge }: ServiceCardProps) {
+export function ServiceCard({
+  title,
+  text,
+  price,
+  href,
+  linkLabel,
+  icon,
+  tile = "neutral",
+  featured,
+  badge,
+}: ServiceCardProps) {
   return (
-    <article className={featured ? 'card card-featured' : 'card'}>
+    <article className={featured ? "card card-featured" : "card"}>
       {badge ? <span className="badge">{badge}</span> : null}
       {icon && !featured ? <div className={`icon-tile tile-${tile}`}>{icon}</div> : null}
       <h3>{title}</h3>
       <p className="card-text">{text}</p>
       {price ? (
-        <p className="small" style={featured ? { color: 'inherit' } : undefined}>
+        <p className="small" style={featured ? { color: "inherit" } : undefined}>
           From <span className="price">{price}</span>
         </p>
       ) : null}
@@ -102,9 +118,12 @@ export function FactCards({ items }: { items: FactCard[] }) {
   return (
     <div className="grid-auto">
       {items.map((item) => (
-        <article key={item.title} className={item.highlight ? 'card card-featured' : 'card'}>
+        <article key={item.title} className={item.highlight ? "card card-featured" : "card"}>
           {item.figure ? (
-            <div className="price-lg" style={{ fontSize: 32, color: item.highlight ? '#F2B705' : '#1B7A73' }}>
+            <div
+              className="price-lg"
+              style={{ fontSize: 32, color: item.highlight ? "#F2B705" : "#1B7A73" }}
+            >
               {item.figure}
             </div>
           ) : null}
@@ -123,10 +142,14 @@ export function Steps({ items, dark }: { items: Step[]; dark?: boolean }) {
   return (
     <ol className="grid-steps">
       {items.map((item, i) => (
-        <li key={item.title} className="step" style={!dark && i === items.length - 1 ? { borderTopColor: '#F2B705' } : undefined}>
+        <li
+          key={item.title}
+          className="step"
+          style={!dark && i === items.length - 1 ? { borderTopColor: "#F2B705" } : undefined}
+        >
           <div className="step-num">{i + 1}</div>
           <h3>{item.title}</h3>
-          <p className={dark ? 'on-dark' : 'body'} style={{ fontSize: 16 }}>
+          <p className={dark ? "on-dark" : "body"} style={{ fontSize: 16 }}>
             {item.text}
           </p>
         </li>
@@ -155,7 +178,11 @@ export function FaqList({ items }: { items: Faq[] }) {
         <details key={item.q} open={i === 0}>
           <summary>{item.q}</summary>
           {/* A blank line (\n\n) in an answer starts a new paragraph. */}
-          {typeof item.a === 'string' ? item.a.split('\n\n').map((para) => <p key={para}>{para}</p>) : <p>{item.a}</p>}
+          {typeof item.a === "string" ? (
+            item.a.split("\n\n").map((para) => <p key={para}>{para}</p>)
+          ) : (
+            <p>{item.a}</p>
+          )}
         </details>
       ))}
     </div>
@@ -190,10 +217,18 @@ export function InlineTicks({ items }: { items: string[] }) {
 }
 
 /* Image slot: shows the image once a path is set in lib/images.ts, otherwise a labelled placeholder */
-export function ImageBox({ slot, ratio = '4 / 5', children }: { slot: ImageSlot; ratio?: string; children?: ReactNode }) {
+export function ImageBox({
+  slot,
+  ratio = "4 / 5",
+  children,
+}: {
+  slot: ImageSlot;
+  ratio?: string;
+  children?: ReactNode;
+}) {
   return (
-    <div style={{ position: 'relative' }}>
-      <div className={slot.src ? 'img-slot has-img' : 'img-slot'} style={{ aspectRatio: ratio }}>
+    <div style={{ position: "relative" }}>
+      <div className={slot.src ? "img-slot has-img" : "img-slot"} style={{ aspectRatio: ratio }}>
         {/* eslint-disable-next-line @next/next/no-img-element -- placeholder slot; moves to next/image when real photos arrive (KSF-TKT-83) */}
         {slot.src ? <img src={slot.src} alt={slot.alt} /> : <span>[Photo: {slot.brief}]</span>}
       </div>
@@ -270,13 +305,23 @@ export function Reviews({ captions }: { captions: string[] }) {
 }
 
 /* Closing call to action */
-export function CtaSection({ title, body, button, href = '/book' }: { title: string; body: string; button: string; href?: string }) {
+export function CtaSection({
+  title,
+  body,
+  button,
+  href = "/book",
+}: {
+  title: string;
+  body: string;
+  button: string;
+  href?: string;
+}) {
   return (
-    <section className="container section" style={{ textAlign: 'center' }}>
-      <h2 className="heading-lg" style={{ maxWidth: 760, margin: '0 auto 16px' }}>
+    <section className="container section" style={{ textAlign: "center" }}>
+      <h2 className="heading-lg" style={{ maxWidth: 760, margin: "0 auto 16px" }}>
         {title}
       </h2>
-      <p className="body" style={{ maxWidth: 560, margin: '0 auto 28px' }}>
+      <p className="body" style={{ maxWidth: 560, margin: "0 auto 28px" }}>
         {body}
       </p>
       <Button href={href}>{button}</Button>
@@ -285,12 +330,22 @@ export function CtaSection({ title, body, button, href = '/book' }: { title: str
 }
 
 /* Sticky booking bar on phones */
-export function MobileBar({ label, price, button = 'Book now', href = '/book' }: { label: string; price: string; button?: string; href?: string }) {
+export function MobileBar({
+  label,
+  price,
+  button = "Book now",
+  href = "/book",
+}: {
+  label: string;
+  price: string;
+  button?: string;
+  href?: string;
+}) {
   return (
     <div className="mobile-bar">
       <div>
         <div className="caption">{label}</div>
-        <div style={{ fontWeight: 700, color: '#0C3536' }}>{price}</div>
+        <div style={{ fontWeight: 700, color: "#0C3536" }}>{price}</div>
       </div>
       <Button href={href} size="md">
         {button}

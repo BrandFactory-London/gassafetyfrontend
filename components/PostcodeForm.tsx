@@ -1,17 +1,23 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import { useState, type FormEvent } from 'react';
+import { useRouter } from "next/navigation";
+import { useState, type FormEvent } from "react";
 
 /** Hero postcode box. Phase 1: passes the postcode to the quote form, no back end. */
-export default function PostcodeForm({ id, button = 'Get a price' }: { id: string; button?: string }) {
+export default function PostcodeForm({
+  id,
+  button = "Get a price",
+}: {
+  id: string;
+  button?: string;
+}) {
   const router = useRouter();
-  const [postcode, setPostcode] = useState('');
+  const [postcode, setPostcode] = useState("");
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const pc = postcode.trim();
-    router.push(pc ? `/book?postcode=${encodeURIComponent(pc)}` : '/book');
+    router.push(pc ? `/book?postcode=${encodeURIComponent(pc)}` : "/book");
   };
 
   return (

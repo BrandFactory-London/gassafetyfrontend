@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useRef } from 'react';
-import { mainNav, site } from '@/lib/site';
-import { MenuIcon } from './icons';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
+import { mainNav, site } from "@/lib/site";
+import { MenuIcon } from "./icons";
 
 export default function MobileMenu() {
   const pathname = usePathname();

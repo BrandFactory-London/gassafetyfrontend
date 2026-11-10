@@ -1,31 +1,45 @@
-import type { Metadata } from 'next';
-import { images } from '@/lib/images';
-import { site } from '@/lib/site';
-import { Button, ImageBox, SectionHead } from '@/components/ui';
+import type { Metadata } from "next";
+import { images } from "@/lib/images";
+import { site } from "@/lib/site";
+import { Button, ImageBox, SectionHead } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: 'About Us: Registered Gas and Electrical Engineers',
+  title: "About Us: Registered Gas and Electrical Engineers",
   description:
-    'Gas Safe, NAPIT and NIC registered engineers helping London and Essex landlords stay compliant. Meet the team, check our registrations and see how we work.',
+    "Gas Safe, NAPIT and NIC registered engineers helping London and Essex landlords stay compliant. Meet the team, check our registrations and see how we work.",
 };
 
 const principles = [
-  { title: 'Plain English', text: 'Every report is explained, every price is fixed and nothing is done without your approval.' },
-  { title: 'Registered and checkable', text: 'Every engineer carries a Gas Safe, NAPIT or NIC registration you can look up before we arrive.' },
-  { title: 'We arrange access', text: 'We deal with your tenant directly so you do not have to.' },
-  { title: 'On record', text: 'Certificates within 24 hours, with copies for your tenant and agent.' },
+  {
+    title: "Plain English",
+    text: "Every report is explained, every price is fixed and nothing is done without your approval.",
+  },
+  {
+    title: "Registered and checkable",
+    text: "Every engineer carries a Gas Safe, NAPIT or NIC registration you can look up before we arrive.",
+  },
+  { title: "We arrange access", text: "We deal with your tenant directly so you do not have to." },
+  {
+    title: "On record",
+    text: "Certificates within 24 hours, with copies for your tenant and agent.",
+  },
 ];
 
 export default function AboutPage() {
   return (
     <>
       <section className="container split hero">
-        <div style={{ flex: '1 1 520px' }}>
-          <h1 className="display-xl">Registered engineers who explain the rules and handle the job</h1>
-          <p className="lead">We help landlords and letting agents across London and Essex keep every property safe, certified and on record.</p>
+        <div style={{ flex: "1 1 520px" }}>
+          <h1 className="display-xl">
+            Registered engineers who explain the rules and handle the job
+          </h1>
+          <p className="lead">
+            We help landlords and letting agents across London and Essex keep every property safe,
+            certified and on record.
+          </p>
           <Button href="/book">Get a price</Button>
         </div>
-        <div style={{ flex: '1 1 420px' }}>
+        <div style={{ flex: "1 1 420px" }}>
           <ImageBox slot={images.team} ratio="5 / 4" />
         </div>
       </section>
@@ -36,10 +50,17 @@ export default function AboutPage() {
             Why we started
           </h2>
           <p className="body">
-            [Client to supply: founder name, years in the trade, and the reason for starting. Suggested angle: after [X] years carrying out certificates for other companies, [Founder] saw landlords struggling with confusing rules, missed renewals and engineers who never turned up. {site.name} was set up to fix that: clear prices, plain explanations and a team that arranges everything with your tenant.]
+            [Client to supply: founder name, years in the trade, and the reason for starting.
+            Suggested angle: after [X] years carrying out certificates for other companies,
+            [Founder] saw landlords struggling with confusing rules, missed renewals and engineers
+            who never turned up. {site.name} was set up to fix that: clear prices, plain
+            explanations and a team that arranges everything with your tenant.]
           </p>
         </div>
-        <div className="grid-auto" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
+        <div
+          className="grid-auto"
+          style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}
+        >
           {principles.map((p) => (
             <article key={p.title} className="card">
               <h3>{p.title}</h3>
@@ -54,11 +75,16 @@ export default function AboutPage() {
         <div className="grid-auto">
           {[1, 2, 3].map((n) => (
             <article key={n} className="card">
-              <div className="img-slot" style={{ aspectRatio: '1 / 1', boxShadow: 'none', fontSize: 13 }}>
+              <div
+                className="img-slot"
+                style={{ aspectRatio: "1 / 1", boxShadow: "none", fontSize: 13 }}
+              >
                 [Engineer photo]
               </div>
               <h3>[Name]</h3>
-              <p className="card-text">[Role, e.g. Gas Safe registered engineer] · [X] years&apos; experience</p>
+              <p className="card-text">
+                [Role, e.g. Gas Safe registered engineer] · [X] years&apos; experience
+              </p>
               <a href={site.registers.gasSafe} className="link-strong" style={{ fontSize: 14 }}>
                 Registration No. [XXXXXX]
               </a>
@@ -82,17 +108,23 @@ export default function AboutPage() {
               <tr>
                 <td>Gas Safe Register</td>
                 <td>The official register for anyone working on gas in the UK</td>
-                <td><a href={site.registers.gasSafe}>{site.registrations.gasSafe}</a></td>
+                <td>
+                  <a href={site.registers.gasSafe}>{site.registrations.gasSafe}</a>
+                </td>
               </tr>
               <tr>
                 <td>NAPIT</td>
                 <td>Registered to carry out and certify electrical work</td>
-                <td><a href={site.registers.napit}>{site.registrations.napit}</a></td>
+                <td>
+                  <a href={site.registers.napit}>{site.registrations.napit}</a>
+                </td>
               </tr>
               <tr>
                 <td>NIC</td>
                 <td>Approved electrical contractor</td>
-                <td><a href={site.registers.nic}>{site.registrations.nic}</a></td>
+                <td>
+                  <a href={site.registers.nic}>{site.registrations.nic}</a>
+                </td>
               </tr>
               <tr>
                 <td>Public liability insurance</td>
@@ -109,9 +141,11 @@ export default function AboutPage() {
           <h2 className="heading-lg" style={{ marginBottom: 12 }}>
             Where we work
           </h2>
-          <p className="body">All London boroughs and [Essex areas to confirm], from our base in {site.base}.</p>
+          <p className="body">
+            All London boroughs and [Essex areas to confirm], from our base in {site.base}.
+          </p>
         </div>
-        <div className="row" style={{ justifyContent: 'flex-end' }}>
+        <div className="row" style={{ justifyContent: "flex-end" }}>
           <Button href="/book">Get a price</Button>
           <a href={site.phoneHref} className="link-strong">
             Call {site.phone}

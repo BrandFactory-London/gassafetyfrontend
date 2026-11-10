@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { mainNav, site } from '@/lib/site';
-import { LogoMark } from './icons';
-import MobileMenu from './MobileMenu';
+import Link from "next/link";
+import { mainNav, site } from "@/lib/site";
+import { LogoMark } from "./icons";
+import MobileMenu from "./MobileMenu";
 
 export default function Header() {
   return (

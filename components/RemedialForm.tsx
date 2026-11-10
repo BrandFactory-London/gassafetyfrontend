@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState, type FormEvent } from 'react';
-import { site } from '@/lib/site';
+import { useState, type FormEvent } from "react";
+import { site } from "@/lib/site";
 
 /** Phase 1: front end only. Nothing is sent; Phase 2 wires this to the enquiries table. */
 export default function RemedialForm() {
@@ -15,7 +15,7 @@ export default function RemedialForm() {
   if (sent) {
     return (
       <div role="status" className="stack">
-        <p style={{ fontWeight: 600, color: '#0C3536' }}>Report received.</p>
+        <p style={{ fontWeight: 600, color: "#0C3536" }}>Report received.</p>
         <p className="small">We will reply with a fixed quote within {site.quoteResponse}.</p>
         <p className="notice">Preview: this form is not connected yet, so nothing was sent.</p>
       </div>
@@ -28,7 +28,13 @@ export default function RemedialForm() {
         <label htmlFor="rw-file" className="label">
           Report (PDF or photo)
         </label>
-        <input id="rw-file" type="file" accept=".pdf,image/*" className="input" style={{ paddingTop: 14 }} />
+        <input
+          id="rw-file"
+          type="file"
+          accept=".pdf,image/*"
+          className="input"
+          style={{ paddingTop: 14 }}
+        />
       </div>
       <div className="field">
         <label htmlFor="rw-postcode" className="label">

@@ -1,7 +1,7 @@
-import type { Metadata } from 'next';
-import LegalPlaceholder from '@/components/LegalPlaceholder';
+import type { Metadata } from "next";
+import LegalPlaceholder from "@/components/LegalPlaceholder";
 
-export const metadata: Metadata = { title: 'Privacy policy' };
+export const metadata: Metadata = { title: "Privacy policy" };
 
 export default function PrivacyPage() {
   return <LegalPlaceholder title="Privacy policy" />;

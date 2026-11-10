@@ -1,11 +1,11 @@
-import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
-import './globals.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import PageBackground from '@/components/PageBackground';
-import RevealController from '@/components/RevealController';
-import { site } from '@/lib/site';
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PageBackground from "@/components/PageBackground";
+import RevealController from "@/components/RevealController";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    'Gas Safety Certificates, EICRs and alarm checks for landlords across London and Essex. Fixed prices, tenant access arranged, certificates within 24 hours.',
+    "Gas Safety Certificates, EICRs and alarm checks for landlords across London and Essex. Fixed prices, tenant access arranged, certificates within 24 hours.",
   // Phase 1 is a private preview. Remove this at go-live (end of Phase 2).
   robots: { index: false, follow: false },
 };
@@ -34,7 +34,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <div className="preview-banner">Preview site. Prices, reviews and forms are placeholders until launch.</div>
+        <div className="preview-banner">
+          Preview site. Prices, reviews and forms are placeholders until launch.
+        </div>
         <PageBackground>
           <Header />
           <main id="main">{children}</main>
