@@ -6,7 +6,9 @@ export default function LegalPlaceholder({ title }: { title: string }) {
       </h1>
       <div className="panel-white">
         <p className="body">
-          [{title} to be supplied by the client&apos;s solicitor or a vetted template before launch. It must name the trading company, registered address and, for privacy, how enquiry and tenant data is collected, stored and deleted.]
+          [{title} to be supplied by the client&apos;s solicitor or a vetted template before launch.
+          It must name the trading company, registered address and, for privacy, how enquiry and
+          tenant data is collected, stored and deleted.]
         </p>
       </div>
     </section>
