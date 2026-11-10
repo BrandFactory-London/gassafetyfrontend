@@ -107,16 +107,18 @@ export default function HomePage() {
       <section className="fd-wrap fd-hero">
         <div className="fd-hero-copy">
           <div className="fd-hero-intro">
-            <h1 className="fd-h1">
+            <h1 className="fd-hero-h1">Landlord gas, electrical and EPC certificates in London</h1>
+            <p className="fd-h1">
               We&apos;ll knock.
               <br />
               You won&apos;t have&nbsp;to.
-            </h1>
+            </p>
           </div>
           <div className="fd-hero-lead">
             <p className="fd-lead" style={{ maxWidth: 520 }}>
-              We arrange access with your tenant, complete your landlord certificates in one visit,
-              and your paperwork is on record within 24 hours.
+              Gas Safety Certificates (CP12), EICRs, EPCs, smoke and CO alarms and fire alarm
+              systems for landlords and letting agents across Greater London. We arrange access with
+              your tenant and your certificates are on record within 24 hours.
             </p>
           </div>
           <div className="fd-hero-prices">
@@ -246,7 +248,7 @@ export default function HomePage() {
 
       <section className="fd-wrap fd-section" aria-labelledby="how-heading">
         <h2 id="how-heading" className="fd-h2" style={{ maxWidth: 820 }}>
-          From your postcode to a certificate on file. You never set foot on the path.
+          How it works: from your postcode to a certificate on file
         </h2>
         <div
           className="fd-tilerule fd-tilerule-thick fd-grow"
@@ -278,7 +280,7 @@ export default function HomePage() {
         >
           <div>
             <h2 id="certs-heading" className="fd-h2" style={{ maxWidth: 760 }}>
-              What your rental needs, and how long each one lasts.
+              Landlord certificates: what your rental needs and how long each lasts
             </h2>
           </div>
           <Link href="/pricing" className="fd-link">
@@ -342,7 +344,7 @@ export default function HomePage() {
         <div className="fd-wrap fd-split" style={{ paddingBlock: 112 }}>
           <div>
             <h2 id="check-heading" className="fd-h2">
-              Is your rental compliant right now?
+              Is your rental compliant? Free landlord compliance check
             </h2>
             <p className="fd-lead" style={{ marginTop: 22, maxWidth: 500, fontSize: 18 }}>
               Answer six questions about the property. You get a plain-English list of what is in
@@ -388,7 +390,7 @@ export default function HomePage() {
       <section className="fd-wrap fd-section fd-split" aria-labelledby="agents-heading">
         <div>
           <h2 id="agents-heading" className="fd-h2">
-            Every property, every certificate, one list.
+            For letting agents: every property, every certificate, one list
           </h2>
           <p className="fd-lead" style={{ marginTop: 22, maxWidth: 500, fontSize: 18 }}>
             Volume pricing, tenant access handled for you, one monthly invoice. Your account will
@@ -432,7 +434,7 @@ export default function HomePage() {
 
       <section className="fd-wrap fd-section" aria-labelledby="areas-heading">
         <h2 id="areas-heading" className="fd-h2">
-          Greater London, street by street.
+          Areas we cover across Greater London
         </h2>
         <div className="fd-plates" style={{ marginTop: 44 }}>
           {london.map((a) => (
@@ -445,7 +447,7 @@ export default function HomePage() {
 
       <section className="fd-wrap fd-section" aria-labelledby="reviews-heading">
         <h2 id="reviews-heading" className="fd-h2">
-          What landlords say
+          What London landlords say
         </h2>
         <div className="fd-cols-3" style={{ marginTop: 44 }}>
           {reviewSlots.map((who, i) => (
@@ -470,7 +472,7 @@ export default function HomePage() {
           }}
         >
           <h2 id="guides-heading" className="fd-h2">
-            Landlord guides
+            Guides for London landlords
           </h2>
           <Link href="/guides" className="fd-link">
             All guides

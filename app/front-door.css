@@ -90,6 +90,15 @@ body {
   letter-spacing: -0.025em;
   color: var(--fd-ink);
 }
+.fd-hero-h1 {
+  margin: 0 0 18px;
+  font-family: var(--fd-body);
+  font-size: clamp(16px, 1.3vw, 19px);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--fd-oxblood);
+  max-width: 34ch;
+}
 .fd-h2 {
   margin: 0;
   font-family: var(--fd-display);
@@ -1888,6 +1897,89 @@ a.chip:hover {
   color: var(--fd-ink-muted);
 }
 .fd-sos-safety a {
+  color: var(--fd-ink);
+  font-weight: 700;
+}
+
+/* Emergency card steps */
+.fd-sos-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 6px -4px;
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: var(--fd-ink-muted);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.fd-sos-back:hover {
+  color: var(--fd-ink);
+}
+.fd-sos-signs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+.fd-sos-signs li {
+  padding: 4px 10px;
+  border: 1px solid var(--fd-rule);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--fd-ink-body);
+}
+.fd-sos-choices {
+  display: grid;
+  gap: 10px;
+}
+.fd-sos-alt {
+  width: 100%;
+  background: var(--fd-white);
+  color: var(--fd-ink);
+  border: 1.5px solid var(--fd-ink);
+  font-size: 16px;
+}
+.fd-sos-alt:hover {
+  background: var(--fd-ground);
+  color: var(--fd-ink);
+}
+.fd-sos-gas {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--fd-sign-red);
+  background: #fbeceb;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fd-ink);
+}
+.fd-sos-gas a {
+  color: var(--fd-ink);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.fd-sos-form {
+  display: grid;
+  gap: 12px;
+}
+.fd-sos-field {
+  display: grid;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fd-ink);
+}
+.fd-sos-field .input,
+.fd-sos-field .select {
+  width: 100%;
+  font-size: 16px;
+}
+.fd-sos-inline {
   color: var(--fd-ink);
   font-weight: 700;
 }

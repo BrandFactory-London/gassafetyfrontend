@@ -28,6 +28,8 @@ export const site = {
     /** Must be true at all times or removed before go-live. */
     engineersAvailable: "[3]",
     services: "gas, electrical or [plumbing]",
+    /** Promised call-back time for the urgent help form. */
+    callbackTime: "[X] minutes",
   },
   registrations: {
     gasSafe: "[XXXXXX]",

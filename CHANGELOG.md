@@ -7,6 +7,15 @@ Versions follow semver. The site is pre-launch: nothing has been released or tag
 
 ### Changed
 
+- Emergency card is now a short flow (KSF-TKT-88): "Is this an emergency?" with common signs; Yes leads to
+  the gas emergency line advice and a Call now button; No leads to an urgent help call-back form (Phase 1:
+  shows a confirmation, sends nothing). Call-back time is a placeholder in `site.emergency.callbackTime`.
+- Homepage SEO (KSF-TKT-88): a keyword H1 ("Landlord gas, electrical and EPC certificates in London")
+  sits above the unchanged tagline, which is now a styled paragraph; the hero lead names every service and
+  Greater London; seven section headings reworded with keywords.
+
+### Changed
+
 - Emergency UI refinements (KSF-TKT-87): the header is now sticky with the tile rule attached, the red urgent
   banner sits beneath it on one line at every width, and the preview banner is removed. The phone emergency
   button is a flat red with a hazard triangle and a gentler pulse; the engineers-available indicator is a
