@@ -7,6 +7,10 @@ Versions follow semver. The site is pre-launch: nothing has been released or tag
 
 ### Changed
 
+- Site-wide motion (KSF-TKT-83): entrance fades and staggered rises, validity bars that grow in every
+  browser (including Safari), gentle parallax on the door and section headings on desktop, and hover
+  colour on schedule rows, prices, bars, links, nameplates, cards, buttons and tables. All off for reduced
+  motion; no parallax on phones.
 - Prices set from London competitor research, just below the market average, VAT included and the same
   across London and Essex: CP12 from £69, EICR from £99, EPC £79, bundle from £149, boiler service £115,
   alarm check free with any certificate and 20% off for agents with 11 to 50 properties (KSF-TKT-83).

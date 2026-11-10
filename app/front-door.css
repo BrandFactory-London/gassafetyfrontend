@@ -1129,26 +1129,17 @@ body {
     transform: none;
   }
 }
-@supports (animation-timeline: view()) {
-  .fd-grow {
-    transform-origin: left;
-    animation: fd-grow linear both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 40%;
-  }
+/* Growers: bars and the tile rule fill from the left (RevealController adds grow-pending). */
+.fd-grow {
+  transform-origin: left;
+  transition: transform 1.1s cubic-bezier(0.22, 0.8, 0.2, 1);
 }
-@keyframes fd-grow {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
+.fd-grow.grow-pending {
+  transform: scaleX(0);
 }
 @media (prefers-reduced-motion: reduce) {
   .fd-knocker,
-  .fd-status-card,
-  .fd-grow {
+  .fd-status-card {
     animation: none;
   }
   .fd-mobile-bar {
@@ -1513,4 +1504,156 @@ a.chip:hover {
 /* The Phase 1 sticky bar is replaced by the fd-mobile-bar. */
 .mobile-bar {
   display: none !important;
+}
+
+/* Hover colour. Lifts use the `translate` property so they never fight the entrance transform. */
+.fd-sched-head,
+.fd-sched-row {
+  margin-inline: -16px;
+  padding-inline: 16px;
+}
+.fd-sched-row {
+  transition: background-color 0.25s ease;
+}
+.fd-sched-row:hover {
+  background-color: rgba(255, 255, 255, 0.65);
+}
+.fd-sched-bundle:hover {
+  background-color: var(--fd-white);
+}
+.fd-sched-price {
+  transition: color 0.25s ease;
+}
+.fd-sched-row:hover .fd-sched-price {
+  color: var(--fd-oxblood);
+}
+.fd-bar {
+  transition: background-color 0.3s ease;
+}
+.fd-sched-row:hover .fd-bar {
+  background-color: var(--fd-brass);
+}
+
+.fd-link,
+.link-strong {
+  text-decoration: none;
+  background-image:
+    linear-gradient(var(--fd-oxblood), var(--fd-oxblood)),
+    linear-gradient(currentColor, currentColor);
+  background-position:
+    0 100%,
+    0 100%;
+  background-size:
+    0% 2px,
+    100% 1px;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition:
+    background-size 0.35s cubic-bezier(0.22, 0.8, 0.2, 1),
+    color 0.2s ease;
+}
+.fd-link:hover,
+.link-strong:hover {
+  color: var(--fd-oxblood);
+  background-size:
+    100% 2px,
+    100% 1px;
+}
+.card-featured .link-strong:hover {
+  color: var(--fd-brass-light);
+}
+
+.fd-plate {
+  transition:
+    translate 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.fd-plate:hover {
+  translate: 0 -3px;
+  color: var(--fd-oxblood);
+  border-color: var(--fd-oxblood);
+}
+.fd-plate:hover .fd-plate-pc {
+  color: var(--fd-oxblood);
+}
+
+.fd-guide {
+  transition:
+    color 0.25s ease,
+    translate 0.3s ease;
+}
+.fd-guide:hover {
+  translate: 6px 0;
+}
+
+.card {
+  transition:
+    translate 0.3s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.card:hover,
+.review:hover {
+  translate: 0 -3px;
+  border-color: var(--fd-oxblood);
+}
+.card-featured:hover {
+  border-color: var(--fd-brass);
+}
+
+.fd-btn,
+.btn {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    translate 0.2s ease;
+}
+.fd-btn:hover,
+.btn:hover {
+  translate: 0 -1px;
+}
+
+.fd-table tbody tr td {
+  transition: background-color 0.2s ease;
+}
+.fd-table tbody tr:hover td {
+  background-color: var(--fd-ground);
+}
+.table tbody tr td {
+  transition: background-color 0.2s ease;
+}
+.table tbody tr:hover td {
+  background-color: rgba(201, 165, 90, 0.1);
+}
+
+/* Reduced motion: no lifts, sweeps or fades. Colour changes still show, instantly. */
+@media (prefers-reduced-motion: reduce) {
+  .fd-grow,
+  .fd-sched-row,
+  .fd-sched-price,
+  .fd-bar,
+  .fd-plate,
+  .fd-guide,
+  .fd-link,
+  .link-strong,
+  .card,
+  .fd-btn,
+  .btn,
+  .fd-table tbody tr td,
+  .table tbody tr td {
+    transition: none;
+  }
+  .fd-plate:hover,
+  .fd-guide:hover,
+  .card:hover,
+  .review:hover,
+  .fd-btn:hover,
+  .btn:hover {
+    translate: none;
+  }
 }
