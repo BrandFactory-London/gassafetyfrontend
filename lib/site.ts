@@ -36,6 +36,7 @@ export const site = {
 export const prices = {
   cp12: "£[XX]",
   eicr: "£[XXX]",
+  epc: "£[XX]",
   bundle: "£[XXX]",
   bundleSaving: "£[XX]",
   alarmCheck: "£[XX]",
