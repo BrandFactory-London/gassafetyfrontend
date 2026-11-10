@@ -47,8 +47,8 @@ export default function SiteHeader() {
             <SiteMenu />
           </div>
         </div>
+        <div className="fd-tilerule" aria-hidden="true" />
       </header>
-      <div className="fd-tilerule" aria-hidden="true" />
     </>
   );
 }

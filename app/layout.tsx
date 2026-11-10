@@ -30,11 +30,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <div className="preview-banner">
-          Preview site. Reviews and forms are placeholders until launch.
-        </div>
-        <EmergencyBanner />
         <SiteHeader />
+        <EmergencyBanner />
         <main id="main">{children}</main>
         <SiteFooter />
         <EmergencyButton />

@@ -188,8 +188,12 @@ body {
 /* Header */
 .fd-header {
   background: var(--fd-white);
-  position: relative;
-  z-index: 20;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+html {
+  scroll-padding-top: 96px;
 }
 .fd-header-bar {
   min-height: 84px;
@@ -1651,15 +1655,16 @@ a.chip:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 4px 10px;
+  flex-wrap: nowrap;
+  gap: 8px;
   min-height: 36px;
   padding-block: 6px;
+  white-space: nowrap;
   text-align: center;
 }
 .fd-urgent .fd-pulse-dot {
   background: var(--fd-white);
-  --fd-pulse: rgba(255, 255, 255, 0.55);
+  --fd-pulse: rgba(255, 255, 255, 0.4);
 }
 .fd-urgent-short {
   display: none;
@@ -1675,7 +1680,7 @@ a.chip:hover {
   color: var(--fd-white);
   text-decoration-thickness: 2px;
 }
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .fd-urgent-long {
     display: none;
   }
@@ -1683,10 +1688,22 @@ a.chip:hover {
     display: inline;
   }
 }
+@media (max-width: 360px) {
+  .fd-urgent {
+    font-size: 13px;
+  }
+  .fd-sos-head .fd-sos-kicker {
+    font-size: 12px;
+  }
+  .fd-sos-head .fd-sos-avail {
+    font-size: 11px;
+    padding: 3px 7px;
+  }
+}
 
 /* Pulsing status dot */
 .fd-pulse-dot {
-  --fd-pulse: rgba(176, 22, 27, 0.5);
+  --fd-pulse: rgba(176, 22, 27, 0.35);
   display: inline-block;
   flex: none;
   width: 9px;
@@ -1694,14 +1711,14 @@ a.chip:hover {
   border-radius: 50%;
   background: var(--fd-sign-red);
   box-shadow: 0 0 0 0 var(--fd-pulse);
-  animation: fd-pulse 1.6s ease-out infinite;
+  animation: fd-pulse 2.4s ease-out infinite;
 }
 @keyframes fd-pulse {
   0% {
     box-shadow: 0 0 0 0 var(--fd-pulse);
   }
   70% {
-    box-shadow: 0 0 0 9px transparent;
+    box-shadow: 0 0 0 5px transparent;
   }
   100% {
     box-shadow: 0 0 0 0 transparent;
@@ -1718,7 +1735,7 @@ a.chip:hover {
     position: fixed;
     right: 16px;
     bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-    z-index: 35;
+    z-index: 45;
     transition: bottom 0.25s ease;
   }
   /* Lift above the Get a price bar while it is showing. */
@@ -1734,42 +1751,29 @@ a.chip:hover {
   height: 60px;
   border: 0;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #e0353a, var(--fd-sign-red) 60%, #7d0e12);
+  background: var(--fd-sign-red);
   color: var(--fd-white);
-  box-shadow:
-    0 10px 24px -8px rgba(22, 24, 26, 0.55),
-    inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 16px -6px rgba(22, 24, 26, 0.45);
   cursor: pointer;
 }
 .fd-sos-button svg {
   position: relative;
-  animation: fd-beacon 1.6s ease-in-out infinite;
+  margin-top: -2px;
 }
 .fd-sos-ring {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(176, 22, 27, 0.55);
-  animation: fd-ring 1.6s ease-out infinite;
+  box-shadow: 0 0 0 0 rgba(176, 22, 27, 0.28);
+  animation: fd-ring 2.6s ease-out infinite;
 }
 @keyframes fd-ring {
   0% {
-    box-shadow: 0 0 0 0 rgba(176, 22, 27, 0.55);
+    box-shadow: 0 0 0 0 rgba(176, 22, 27, 0.28);
   }
-  80%,
+  70%,
   100% {
-    box-shadow: 0 0 0 18px rgba(176, 22, 27, 0);
-  }
-}
-@keyframes fd-beacon {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
-    opacity: 0.85;
-  }
-  50% {
-    filter: drop-shadow(0 0 6px rgba(255, 236, 200, 0.95));
-    opacity: 1;
+    box-shadow: 0 0 0 10px rgba(176, 22, 27, 0);
   }
 }
 .fd-sos-button:focus-visible {
@@ -1787,6 +1791,8 @@ a.chip:hover {
   border-radius: 6px;
   padding: 22px 20px 18px;
   box-shadow: 0 24px 48px -16px rgba(22, 24, 26, 0.45);
+  max-height: calc(100dvh - 180px);
+  overflow-y: auto;
   animation: fd-card-in 0.22s ease-out;
 }
 .fd-sos-card:focus {
@@ -1820,8 +1826,33 @@ a.chip:hover {
   background: var(--fd-ground);
   color: var(--fd-ink);
 }
+.fd-sos-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 26px 8px 0;
+}
+.fd-sos-avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #fbeceb;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--fd-bad);
+  white-space: nowrap;
+}
+.fd-sos-avail .fd-pulse-dot {
+  width: 7px;
+  height: 7px;
+}
 .fd-sos-kicker {
-  margin: 0 0 6px;
+  white-space: nowrap;
+  margin: 0;
   font-size: 13px;
   font-weight: 700;
   color: var(--fd-sign-red);
@@ -1839,18 +1870,6 @@ a.chip:hover {
   font-size: 15px;
   line-height: 1.5;
   color: var(--fd-ink-body);
-}
-.fd-sos-status {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 14px;
-  padding: 10px 12px;
-  background: #fbeceb;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--fd-bad);
 }
 .fd-sos-call {
   width: 100%;
@@ -1900,7 +1919,6 @@ a.chip:hover {
   }
   .fd-pulse-dot,
   .fd-sos-ring,
-  .fd-sos-button svg,
   .fd-sos-card {
     animation: none;
   }
