@@ -109,7 +109,6 @@ export default function HomePage() {
       <section className="fd-wrap fd-hero">
         <div className="fd-hero-copy">
           <div className="fd-hero-intro">
-            <p className="fd-kicker fd-kicker-accent">Gas · Electrical · EPC · Alarms</p>
             <h1 className="fd-h1">
               We&apos;ll knock.
               <br />
@@ -248,7 +247,6 @@ export default function HomePage() {
       </section>
 
       <section className="fd-wrap fd-section" aria-labelledby="how-heading">
-        <p className="fd-kicker">How it works</p>
         <h2 id="how-heading" className="fd-h2" style={{ maxWidth: 820 }}>
           From your postcode to a certificate on file. You never set foot on the path.
         </h2>
@@ -281,7 +279,6 @@ export default function HomePage() {
           }}
         >
           <div>
-            <p className="fd-kicker">The certificates</p>
             <h2 id="certs-heading" className="fd-h2" style={{ maxWidth: 760 }}>
               What your rental needs, and how long each one lasts.
             </h2>
@@ -346,7 +343,6 @@ export default function HomePage() {
       >
         <div className="fd-wrap fd-split" style={{ paddingBlock: 112 }}>
           <div>
-            <p className="fd-kicker">60-second check</p>
             <h2 id="check-heading" className="fd-h2">
               Is your rental compliant right now?
             </h2>
@@ -393,7 +389,6 @@ export default function HomePage() {
 
       <section className="fd-wrap fd-section fd-split" aria-labelledby="agents-heading">
         <div>
-          <p className="fd-kicker">Letting agents and portfolios</p>
           <h2 id="agents-heading" className="fd-h2">
             Every property, every certificate, one list.
           </h2>
@@ -438,7 +433,6 @@ export default function HomePage() {
       </section>
 
       <section className="fd-wrap fd-section" aria-labelledby="areas-heading">
-        <p className="fd-kicker">Areas we cover</p>
         <h2 id="areas-heading" className="fd-h2">
           East London and Essex, street by street.
         </h2>

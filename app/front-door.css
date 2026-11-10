@@ -80,18 +80,6 @@ body {
 }
 
 /* Type */
-.fd-kicker {
-  margin: 0 0 14px;
-  font-family: var(--fd-display);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--fd-ink-muted);
-}
-.fd-kicker-accent {
-  color: var(--fd-oxblood);
-}
 .fd-h1 {
   margin: 0;
   font-family: var(--fd-display);
@@ -389,10 +377,6 @@ body {
   }
   .fd-hero .fd-h1 {
     font-size: clamp(38px, 10.5vw, 46px);
-  }
-  .fd-hero .fd-kicker {
-    font-size: 12px;
-    margin-bottom: 12px;
   }
   .fd-prices {
     margin-top: 0;
@@ -846,9 +830,6 @@ body {
 .fd-dark {
   background: var(--fd-ink);
   color: var(--fd-ground);
-}
-.fd-dark .fd-kicker {
-  color: var(--fd-brass);
 }
 .fd-dark .fd-lead {
   color: var(--fd-dark-text);
