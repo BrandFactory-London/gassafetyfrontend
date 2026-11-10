@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Landlord Gas and Electrical Certificate Bundle, London",
   description:
-    "Gas Safety Certificate and EICR in one visit across London and Essex. One booking, one invoice, a fixed bundle price and both certificates within 24 hours.",
+    "Gas Safety Certificate and EICR in one visit across London. One booking, one invoice, a fixed bundle price and both certificates within 24 hours.",
 };
 
 export default function BundlePage() {

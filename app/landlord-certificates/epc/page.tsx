@@ -12,9 +12,9 @@ import {
 } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "EPC for Landlords, London and Essex",
+  title: "EPC for Landlords, London",
   description:
-    "Energy Performance Certificates for rented homes across London and Essex, by an accredited energy assessor. Fixed price, tenant access arranged, and advice on the 2030 EPC C rules.",
+    "Energy Performance Certificates for rented homes across London, by an accredited energy assessor. Fixed price, tenant access arranged, and advice on the 2030 EPC C rules.",
 };
 
 // Rules checked 10 Nov 2026 against the government consultation outcome of 21 Jan 2026
@@ -32,7 +32,7 @@ export default function EpcPage() {
 
       <section className="container split hero-inner">
         <div style={{ flex: "1 1 560px" }} className="hero">
-          <h1 className="display-xl">EPCs for landlords in London and Essex</h1>
+          <h1 className="display-xl">EPCs for landlords in London</h1>
           <p className="lead">
             An Energy Performance Certificate by an accredited energy assessor, valid for 10 years.
             Fixed price, tenant access arranged for you, and booked on the same visit as your gas

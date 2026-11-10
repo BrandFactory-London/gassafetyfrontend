@@ -4,9 +4,9 @@ import { Button } from "@/components/ui";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us: Landlord Certificates London and Essex",
+  title: "Contact Us: Landlord Certificates London",
   description:
-    "Call, email or message us about Gas Safety Certificates, EICRs and remedial work across London and Essex. Open Monday to Saturday, 8am to 6pm.",
+    "Call, email or message us about Gas Safety Certificates, EICRs and remedial work across London. Open Monday to Saturday, 8am to 6pm.",
 };
 
 export default function ContactPage() {
@@ -65,7 +65,7 @@ export default function ContactPage() {
               </p>
             </div>
           </div>
-          <p className="body">We cover all London boroughs and [Essex areas to confirm].</p>
+          <p className="body">We cover every Greater London borough.</p>
         </div>
       </section>
     </>

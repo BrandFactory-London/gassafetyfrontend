@@ -5,6 +5,21 @@ Versions follow semver. The site is pre-launch: nothing has been released or tag
 
 ## [Unreleased]
 
+### Added
+
+- Client meeting changes (KSF-TKT-86): fire alarms and panels page, boiler installation page and a
+  maintenance plan coming-soon page with a waiting list form (sends nothing); both services in the quote
+  form, hubs, main nav (fire alarms) and a new Services footer group. A thin red urgent call-out banner
+  above the header and a round red emergency button on phones that opens a 24/7 call card with an
+  engineers-available indicator and the national gas emergency advice. Number and engineer count are
+  placeholders.
+
+### Removed
+
+- Essex (KSF-TKT-86): Greater London only. Seven Essex area pages removed and redirected to /areas; all
+  copy, titles and the nameplate updated. The header hides its phone number below 1520px (the urgent
+  banner carries the number) so the nav stays on one line.
+
 ### Changed
 
 - Site-wide motion (KSF-TKT-83): entrance fades and staggered rises, validity bars that grow in every

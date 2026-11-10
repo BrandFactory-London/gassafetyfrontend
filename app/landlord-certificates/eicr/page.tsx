@@ -18,9 +18,9 @@ import {
 } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "EICR for Landlords in London and Essex, Fixed Price",
+  title: "EICR for Landlords in London, Fixed Price",
   description:
-    "Landlord EICRs across London and Essex by NAPIT registered electricians. Fixed prices, tenant access arranged and your report emailed within 24 hours.",
+    "Landlord EICRs across London by NAPIT registered electricians. Fixed prices, tenant access arranged and your report emailed within 24 hours.",
 };
 
 const eicrRows = [
@@ -84,7 +84,7 @@ export default function EicrPage() {
 
       <section className="container split split-top hero-inner">
         <div style={{ flex: "1 1 560px" }} className="hero">
-          <h1 className="display-xl">EICR for landlords in London and Essex</h1>
+          <h1 className="display-xl">EICR for landlords in London</h1>
           <p className="lead">
             A full Electrical Installation Condition Report, required at least every 5 years, by a
             NAPIT registered electrician. Fixed price, tenant access arranged for you, and your

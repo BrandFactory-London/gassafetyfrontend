@@ -4,9 +4,9 @@ import { Button, CtaSection, FaqList, SectionHead, Steps } from "@/components/ui
 import RemedialForm from "@/components/RemedialForm";
 
 export const metadata: Metadata = {
-  title: "EICR Failed? Remedial Work for Landlords, London and Essex",
+  title: "EICR Failed? Remedial Work for Landlords, London",
   description:
-    "Failed EICR or gas check? Fixed-price remedial work across London and Essex, completed within the 28-day deadline with written confirmation for your records.",
+    "Failed EICR or gas check? Fixed-price remedial work across London, completed within the 28-day deadline with written confirmation for your records.",
 };
 
 const deadlines = [

@@ -4,9 +4,9 @@ import { AlarmIcon, BoltIcon, DocIcon, FlameIcon, WrenchIcon } from "@/component
 import { Button, CtaSection, SectionHead, ServiceCard, TrustBar } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Landlord Safety Certificates in London and Essex",
+  title: "Landlord Safety Certificates in London",
   description:
-    "Every safety certificate a London or Essex landlord needs: Gas Safety (CP12), EICR, EPC, alarm checks and more. Fixed prices and certificates within 24 hours.",
+    "Every safety certificate a London landlord needs: Gas Safety (CP12), EICR, EPC, alarm checks and more. Fixed prices and certificates within 24 hours.",
 };
 
 export default function CertificatesHubPage() {
@@ -18,7 +18,7 @@ export default function CertificatesHubPage() {
         </h1>
         <p className="lead">
           Fixed prices, tenant access arranged and certificates emailed within 24 hours, across
-          London and Essex.
+          London.
         </p>
         <Button href="/book">Get a price</Button>
       </section>

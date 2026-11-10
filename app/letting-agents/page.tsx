@@ -5,9 +5,9 @@ import { Button, FaqList, FeaturePanel, SectionHead, Steps } from "@/components/
 import AgentForm from "@/components/AgentForm";
 
 export const metadata: Metadata = {
-  title: "Landlord Compliance for Letting Agents, London and Essex",
+  title: "Landlord Compliance for Letting Agents, London",
   description:
-    "Gas and electrical certificates for letting agents across London and Essex. Tenant access handled, volume pricing and one monthly invoice for every property.",
+    "Gas and electrical certificates for letting agents across London. Tenant access handled, volume pricing and one monthly invoice for every property.",
 };
 
 const benefits = [
@@ -42,9 +42,7 @@ export default function LettingAgentsPage() {
     <>
       <section className="container split hero">
         <div style={{ flex: "1 1 560px" }}>
-          <h1 className="display-xl">
-            One compliance partner for your whole London and Essex book
-          </h1>
+          <h1 className="display-xl">One compliance partner for your whole London book</h1>
           <p className="lead">
             Gas and electrical certificates across every property you manage. We arrange access with
             tenants, send certificates to you and your landlords, and invoice you once a month.
@@ -78,7 +76,7 @@ export default function LettingAgentsPage() {
           </div>
           {[
             ["Flat 4, 18 High Street, E15", "CP12 · Tue"],
-            ["22 Oak Avenue, Basildon", "Bundle · Thu"],
+            ["22 Oak Avenue, Leyton", "Bundle · Thu"],
             ["7 Station Road, Ilford", "EICR · Fri"],
           ].map(([address, job]) => (
             <div

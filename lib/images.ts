@@ -28,7 +28,7 @@ export const images = {
   team: {
     src: null,
     alt: "The team outside a client property",
-    brief: "The team with van outside a London or Essex property.",
+    brief: "The team with van outside a London property.",
   },
   area: {
     src: null,

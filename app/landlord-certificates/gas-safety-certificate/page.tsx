@@ -17,9 +17,9 @@ import {
 } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Landlord Gas Safety Certificate (CP12), London and Essex",
+  title: "Landlord Gas Safety Certificate (CP12), London",
   description:
-    "Landlord Gas Safety Certificates by Gas Safe registered engineers across London and Essex. Fixed price, tenant access arranged, certificate within 24 hours.",
+    "Landlord Gas Safety Certificates by Gas Safe registered engineers across London. Fixed price, tenant access arranged, certificate within 24 hours.",
 };
 
 const classifications = [
@@ -56,7 +56,7 @@ export default function GasSafetyPage() {
 
       <section className="container split split-top hero-inner">
         <div style={{ flex: "1 1 560px" }} className="hero">
-          <h1 className="display-xl">Landlord Gas Safety Certificates in London and Essex</h1>
+          <h1 className="display-xl">Landlord Gas Safety Certificates in London</h1>
           <p className="lead">
             Your annual gas safety check (CP12) by a Gas Safe registered engineer. Fixed price,
             tenant access arranged for you, and your certificate emailed within 24 hours.

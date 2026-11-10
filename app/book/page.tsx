@@ -3,9 +3,9 @@ import { Suspense } from "react";
 import QuoteForm from "@/components/QuoteForm";
 
 export const metadata: Metadata = {
-  title: "Get a Fixed Price: Landlord Certificates London and Essex",
+  title: "Get a Fixed Price: Landlord Certificates London",
   description:
-    "Get a fixed price for a Gas Safety Certificate, EICR or Landlord Bundle in three quick steps. London and Essex, VAT included, certificates within 24 hours.",
+    "Get a fixed price for a Gas Safety Certificate, EICR or Landlord Bundle in three quick steps. London, VAT included, certificates within 24 hours.",
 };
 
 export default function BookPage() {
