@@ -14,9 +14,6 @@ export default function ElectricalHubPage() {
   return (
     <>
       <section className="container hero" style={{ paddingBottom: 56 }}>
-        <p className="eyebrow" style={{ marginBottom: 18 }}>
-          Electrical services · NAPIT and NIC registered
-        </p>
         <h1 className="display-xl" style={{ maxWidth: 820 }}>
           Electrical testing, upgrades and repairs for landlords
         </h1>

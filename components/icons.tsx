@@ -3,7 +3,7 @@ type IconProps = { size?: number };
 export function LogoMark({ size = 32 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
-      <rect x="2" y="2" width="28" height="28" rx="6" fill="#0C3536" />
+      <rect x="2" y="2" width="28" height="28" rx="6" fill="#16181A" />
       <path
         d="M16 8l7 6v10H9V14z"
         fill="none"
@@ -119,7 +119,7 @@ export function TickIcon({ size = 18 }: IconProps) {
       <path
         d="M4 9.5l3 3L14 5.5"
         fill="none"
-        stroke="#1B7A73"
+        stroke="#16181A"
         strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -131,11 +131,11 @@ export function TickIcon({ size = 18 }: IconProps) {
 export function TickCircleIcon({ size = 20 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" aria-hidden="true">
-      <circle cx="10" cy="10" r="10" fill="#EBF3D9" />
+      <circle cx="10" cy="10" r="10" fill="#E5EFE7" />
       <path
         d="M6 10.5l2.5 2.5L14 7.5"
         fill="none"
-        stroke="#3F6B12"
+        stroke="#1F6B3A"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

@@ -42,13 +42,11 @@ export default function RemedialPage() {
     <>
       <section className="container split split-top hero">
         <div style={{ flex: "1 1 520px" }}>
-          <p className="eyebrow" style={{ marginBottom: 18 }}>
-            Remedial works · 28-day deadline
-          </p>
           <h1 className="display-xl">Failed EICR or gas check? We fix it within the deadline.</h1>
           <p className="lead">
             Send us your report, even if another company carried out the inspection. We quote every
-            fix the same day, complete the work within the legal deadline and confirm it in writing.
+            fix the same day, complete the work within the 28-day legal deadline and confirm it in
+            writing.
           </p>
           <div className="row">
             <Button href="#upload">Upload your report</Button>

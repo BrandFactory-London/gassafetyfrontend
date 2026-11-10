@@ -14,7 +14,7 @@ export default function AgentForm() {
   if (sent) {
     return (
       <div role="status" className="stack">
-        <p style={{ fontWeight: 600, color: "#0C3536" }}>
+        <p style={{ fontWeight: 600, color: "#16181A" }}>
           Thank you. We will call you within [one working day].
         </p>
         <p className="notice">Preview: this form is not connected yet, so nothing was sent.</p>

@@ -15,7 +15,7 @@ export default function RemedialForm() {
   if (sent) {
     return (
       <div role="status" className="stack">
-        <p style={{ fontWeight: 600, color: "#0C3536" }}>Report received.</p>
+        <p style={{ fontWeight: 600, color: "#16181A" }}>Report received.</p>
         <p className="small">We will reply with a fixed quote within {site.quoteResponse}.</p>
         <p className="notice">Preview: this form is not connected yet, so nothing was sent.</p>
       </div>

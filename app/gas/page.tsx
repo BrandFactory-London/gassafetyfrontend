@@ -14,9 +14,6 @@ export default function GasHubPage() {
   return (
     <>
       <section className="container hero" style={{ paddingBottom: 56 }}>
-        <p className="eyebrow" style={{ marginBottom: 18 }}>
-          Gas services · Gas Safe registered
-        </p>
         <h1 className="display-xl" style={{ maxWidth: 820 }}>
           Gas safety, servicing and repairs for rented homes
         </h1>

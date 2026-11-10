@@ -6,9 +6,6 @@ export default function NotFound() {
       className="container-narrow"
       style={{ paddingTop: 80, paddingBottom: 140, textAlign: "center" }}
     >
-      <p className="eyebrow" style={{ marginBottom: 14 }}>
-        Page not found
-      </p>
       <h1 className="display-xl" style={{ marginBottom: 16 }}>
         We could not find that page
       </h1>

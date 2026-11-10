@@ -1,3 +1,4 @@
+import MobileCtaBar from "./fd/MobileCtaBar";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { ImageSlot } from "@/lib/images";
@@ -36,12 +37,11 @@ export function Button({ href, children, variant = "primary", size = "lg" }: But
 }
 
 /* Section heading */
-type SectionHeadProps = { eyebrow?: string; title: string; intro?: ReactNode; size?: "lg" | "md" };
+type SectionHeadProps = { title: string; intro?: ReactNode; size?: "lg" | "md" };
 
-export function SectionHead({ eyebrow, title, intro, size = "lg" }: SectionHeadProps) {
+export function SectionHead({ title, intro, size = "lg" }: SectionHeadProps) {
   return (
     <div className="section-head">
-      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
       <h2 className={size === "lg" ? "heading-lg" : "heading-md"}>{title}</h2>
       {intro ? <p className="body">{intro}</p> : null}
     </div>
@@ -122,7 +122,7 @@ export function FactCards({ items }: { items: FactCard[] }) {
           {item.figure ? (
             <div
               className="price-lg"
-              style={{ fontSize: 32, color: item.highlight ? "#F2B705" : "#1B7A73" }}
+              style={{ fontSize: 32, color: item.highlight ? "#C9A55A" : "#16181A" }}
             >
               {item.figure}
             </div>
@@ -145,7 +145,7 @@ export function Steps({ items, dark }: { items: Step[]; dark?: boolean }) {
         <li
           key={item.title}
           className="step"
-          style={!dark && i === items.length - 1 ? { borderTopColor: "#F2B705" } : undefined}
+          style={!dark && i === items.length - 1 ? { borderTopColor: "#6F1D22" } : undefined}
         >
           <div className="step-num">{i + 1}</div>
           <h3>{item.title}</h3>
@@ -330,6 +330,7 @@ export function CtaSection({
 }
 
 /* Sticky booking bar on phones */
+/** Phone booking bar for the certificate pages; appears once the hero button scrolls away. */
 export function MobileBar({
   label,
   price,
@@ -342,14 +343,11 @@ export function MobileBar({
   href?: string;
 }) {
   return (
-    <div className="mobile-bar">
-      <div>
-        <div className="caption">{label}</div>
-        <div style={{ fontWeight: 700, color: "#0C3536" }}>{price}</div>
-      </div>
-      <Button href={href} size="md">
-        {button}
-      </Button>
-    </div>
+    <MobileCtaBar
+      label={`${label} ${price}`}
+      button={button}
+      href={href}
+      watch=".hero .btn-primary"
+    />
   );
 }

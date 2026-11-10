@@ -22,6 +22,7 @@ const SERVICES = [
     price: prices.cp12,
   },
   { id: "eicr", label: "EICR", sub: "Every 5 years", price: prices.eicr },
+  { id: "epc", label: "EPC", sub: "Valid for 10 years", price: prices.epc },
   {
     id: "alarms",
     label: "Smoke and CO alarm check",
@@ -116,9 +117,9 @@ export default function QuoteForm() {
                     borderRadius: 999,
                     fontSize: 14,
                     fontWeight: 600,
-                    background: active ? "#0C3536" : past ? "#FFFFFF" : "rgba(255,255,255,0.6)",
-                    color: active ? "#FFFFFF" : past ? "#0C3536" : "#4C5E5B",
-                    border: active ? "none" : "1px solid #EAE3D9",
+                    background: active ? "#16181A" : past ? "#FFFFFF" : "rgba(255,255,255,0.6)",
+                    color: active ? "#FFFFFF" : past ? "#16181A" : "#5F6266",
+                    border: active ? "none" : "1px solid #E6E4DE",
                   }}
                 >
                   <span
@@ -130,8 +131,8 @@ export default function QuoteForm() {
                       alignItems: "center",
                       justifyContent: "center",
                       fontSize: 13,
-                      background: active ? "#F2B705" : past ? "#EBF3D9" : "#F1E9DD",
-                      color: active ? "#0C3536" : past ? "#3F6B12" : "#4C5E5B",
+                      background: active ? "#6F1D22" : past ? "#E5EFE7" : "#EBE9E3",
+                      color: active ? "#FFFFFF" : past ? "#1F6B3A" : "#5F6266",
                     }}
                   >
                     {past ? "✓" : n}
@@ -259,8 +260,8 @@ export default function QuoteForm() {
                           fontSize: 14,
                           fontWeight: 700,
                           color: "#fff",
-                          background: on ? "#1B7A73" : "#fff",
-                          border: `1.5px solid ${on ? "#1B7A73" : "#8F8070"}`,
+                          background: on ? "#16181A" : "#fff",
+                          border: `1.5px solid ${on ? "#16181A" : "#8E8B84"}`,
                         }}
                       >
                         {on ? "✓" : ""}
@@ -272,7 +273,7 @@ export default function QuoteForm() {
                         </span>
                       </span>
                     </span>
-                    <span style={{ fontWeight: 700, color: "#0C3536", whiteSpace: "nowrap" }}>
+                    <span style={{ fontWeight: 700, color: "#16181A", whiteSpace: "nowrap" }}>
                       {s.price}
                     </span>
                   </button>
@@ -330,13 +331,13 @@ export default function QuoteForm() {
             </div>
             <div
               style={{
-                background: "#FAF7F2",
-                border: "1px solid #EAE3D9",
+                background: "#F3F2EE",
+                border: "1px solid #E6E4DE",
                 borderRadius: 12,
                 padding: 20,
               }}
             >
-              <p style={{ fontWeight: 600, color: "#0C3536", marginBottom: 12 }}>
+              <p style={{ fontWeight: 600, color: "#16181A", marginBottom: 12 }}>
                 Is the property occupied?{" "}
                 <span className="muted" style={{ fontWeight: 400 }}>
                   Optional: we will arrange access with your tenant.
@@ -385,11 +386,11 @@ export default function QuoteForm() {
         {step === 4 ? (
           <div className="panel-white" role="status" style={{ padding: 48 }}>
             <svg width="56" height="56" viewBox="0 0 36 36" aria-hidden="true">
-              <circle cx="18" cy="18" r="17" fill="#EBF3D9" />
+              <circle cx="18" cy="18" r="17" fill="#E5EFE7" />
               <path
                 d="M11 18.5l4.5 4.5L25 13.5"
                 fill="none"
-                stroke="#3F6B12"
+                stroke="#1F6B3A"
                 strokeWidth="2.6"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -454,7 +455,7 @@ export default function QuoteForm() {
             {role === ROLES[0] ? "Landlord" : "Letting agent"}
           </dd>
         </dl>
-        <div style={{ borderTop: "1px solid #EAE3D9", margin: "18px 0 14px" }} />
+        <div style={{ borderTop: "1px solid #E6E4DE", margin: "18px 0 14px" }} />
         <p className="small muted" style={{ marginBottom: 8 }}>
           Services
         </p>
@@ -470,7 +471,7 @@ export default function QuoteForm() {
         ) : (
           <p className="small muted">None chosen yet</p>
         )}
-        <div style={{ borderTop: "1px solid #EAE3D9", margin: "18px 0 14px" }} />
+        <div style={{ borderTop: "1px solid #E6E4DE", margin: "18px 0 14px" }} />
         <ul style={{ listStyle: "none", display: "grid", gap: 8, fontSize: 14 }} className="body">
           <li>Gas Safe, NAPIT and NIC registered</li>
           <li>Fixed prices, VAT included</li>
