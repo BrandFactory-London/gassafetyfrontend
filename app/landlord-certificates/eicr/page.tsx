@@ -63,13 +63,11 @@ export default function EicrPage() {
 
       <section className="container split split-top hero-inner">
         <div style={{ flex: "1 1 560px" }} className="hero">
-          <p className="eyebrow" style={{ marginBottom: 18 }}>
-            Electrical safety · Required every 5 years
-          </p>
           <h1 className="display-xl">EICR for landlords in London and Essex</h1>
           <p className="lead">
-            A full Electrical Installation Condition Report by a NAPIT registered electrician. Fixed
-            price, tenant access arranged for you, and your report emailed within 24 hours.
+            A full Electrical Installation Condition Report, required at least every 5 years, by a
+            NAPIT registered electrician. Fixed price, tenant access arranged for you, and your
+            report emailed within 24 hours.
           </p>
           <div className="row" style={{ marginBottom: 28 }}>
             <div>
@@ -170,7 +168,7 @@ export default function EicrPage() {
                   <td>{row}</td>
                   <td>£[XXX]</td>
                   <td>
-                    <strong style={{ color: "#0C3536" }}>£[XXX]</strong>{" "}
+                    <strong style={{ color: "#16181A" }}>£[XXX]</strong>{" "}
                     <span className="badge badge-soft">Save £[XX]</span>
                   </td>
                 </tr>
@@ -204,7 +202,7 @@ export default function EicrPage() {
                 style={{ background: "#fff", color: "#182826", borderRadius: 12, padding: 22 }}
               >
                 <span className={`pill pill-${c.pill}`}>{c.code}</span>
-                <h3 className="heading-sm" style={{ margin: "12px 0 6px", color: "#0C3536" }}>
+                <h3 className="heading-sm" style={{ margin: "12px 0 6px", color: "#16181A" }}>
                   {c.title}
                 </h3>
                 <p className="small">{c.text}</p>
@@ -235,7 +233,7 @@ export default function EicrPage() {
             ))}
           </ol>
           <p style={{ marginTop: 28 }}>
-            <Link href="/remedial-works" style={{ color: "#F2B705", fontWeight: 600 }}>
+            <Link href="/remedial-works" style={{ color: "#E9D3A2", fontWeight: 600 }}>
               More about remedial work
             </Link>
           </p>
@@ -272,7 +270,7 @@ export default function EicrPage() {
                 fontFamily: "var(--font-display)",
                 fontSize: 22,
                 fontWeight: 600,
-                color: "#0C3536",
+                color: "#16181A",
               }}
             >
               [Engineer name]
@@ -353,7 +351,7 @@ export default function EicrPage() {
           />
           <ServiceCard
             icon={<AlarmIcon />}
-            tile="alarm"
+            tile="neutral"
             title="Smoke and CO alarms"
             text="Checked and fitted to current rules."
             price={prices.alarmCheck}

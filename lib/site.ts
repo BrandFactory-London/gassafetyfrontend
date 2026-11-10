@@ -63,6 +63,7 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
     links: [
       { label: "Gas Safety (CP12)", href: "/landlord-certificates/gas-safety-certificate" },
       { label: "EICR", href: "/landlord-certificates/eicr" },
+      { label: "EPC", href: "/landlord-certificates/epc" },
       { label: "Landlord Bundle", href: "/landlord-certificates/landlord-bundle" },
       { label: "Smoke and CO alarms", href: "/landlord-certificates/smoke-co-alarms" },
       { label: "Remedial works", href: "/remedial-works" },

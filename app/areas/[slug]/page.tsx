@@ -53,13 +53,11 @@ export default async function AreaPage({ params }: Props) {
 
       <section className="container split hero-inner">
         <div style={{ flex: "1 1 560px" }} className="hero">
-          <p className="eyebrow" style={{ marginBottom: 18 }}>
-            {area.name} · {area.postcodes.slice(0, 3).join(", ")}
-          </p>
           <h1 className="display-xl">Gas and electrical certificates for {area.name} landlords</h1>
           <p className="lead">
-            Gas Safety Certificates, EICRs and alarm checks across {area.name} and nearby. Local
-            engineers, fixed prices and certificates within 24 hours.
+            Gas Safety Certificates, EICRs and alarm checks across {area.name} (
+            {area.postcodes.slice(0, 3).join(", ")}) and nearby. Local engineers, fixed prices and
+            certificates within 24 hours.
           </p>
           <PostcodeForm id="area-postcode" />
         </div>

@@ -36,10 +36,11 @@ export default function GuidesPage() {
                 style={{
                   aspectRatio: "16 / 9",
                   borderRadius: 10,
-                  background: "linear-gradient(150deg, #E4EFEC 0%, #E2D4C2 100%)",
+                  background:
+                    "repeating-linear-gradient(135deg, #EBE9E3 0 14px, #E6E4DE 14px 28px)",
                 }}
               />
-              <span className="caption" style={{ color: "#1B7A73", fontWeight: 600 }}>
+              <span className="caption" style={{ color: "#16181A", fontWeight: 600 }}>
                 {cat} · Coming soon
               </span>
               <h2 className="heading-sm">{title}</h2>

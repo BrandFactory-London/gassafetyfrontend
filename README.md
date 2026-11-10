@@ -66,7 +66,7 @@ Anything in `[square brackets]` is a placeholder waiting on the client.
 ## Pages
 
 - `/` homepage
-- `/landlord-certificates` hub, plus `/eicr`, `/gas-safety-certificate`, `/landlord-bundle`, `/smoke-co-alarms`
+- `/landlord-certificates` hub, plus `/eicr`, `/gas-safety-certificate`, `/epc`, `/landlord-bundle`, `/smoke-co-alarms`
 - `/remedial-works`, `/pricing`, `/letting-agents`, `/about`, `/contact`
 - `/compliance-check` (interactive checker) and `/book` (three-step quote form, accepts `?service=` and `?postcode=`)
 - `/gas`, `/electrical` hubs (draft copy, Batch 2 pages to follow)

@@ -42,9 +42,6 @@ export default function LettingAgentsPage() {
     <>
       <section className="container split hero">
         <div style={{ flex: "1 1 560px" }}>
-          <p className="eyebrow" style={{ marginBottom: 18 }}>
-            For letting agents and property managers
-          </p>
           <h1 className="display-xl">
             One compliance partner for your whole London and Essex book
           </h1>
@@ -61,7 +58,7 @@ export default function LettingAgentsPage() {
         </div>
         <div style={{ flex: "1 1 420px" }} className="panel-white">
           <div className="row" style={{ justifyContent: "space-between", marginBottom: 14 }}>
-            <span style={{ fontWeight: 700, color: "#0C3536" }}>Monthly compliance summary</span>
+            <span style={{ fontWeight: 700, color: "#16181A" }}>Monthly compliance summary</span>
             <span className="caption">[Agency name]</span>
           </div>
           <div
@@ -72,9 +69,9 @@ export default function LettingAgentsPage() {
               marginBottom: 16,
             }}
           >
-            <Stat bg="#EBF3D9" ink="#3F6B12" value="[XX]" label="In date" />
-            <Stat bg="#FFF1D6" ink="#7A4B00" value="[X]" label="Due in 60 days" />
-            <Stat bg="#FBE3E1" ink="#8A1C14" value="[X]" label="Action needed" />
+            <Stat bg="#E5EFE7" ink="#1F6B3A" value="[XX]" label="In date" />
+            <Stat bg="#F6ECD9" ink="#8A5300" value="[X]" label="Due in 60 days" />
+            <Stat bg="#F6E1DF" ink="#A3201E" value="[X]" label="Action needed" />
           </div>
           <div className="caption" style={{ marginBottom: 6 }}>
             Booked this month
@@ -91,7 +88,7 @@ export default function LettingAgentsPage() {
                 justifyContent: "space-between",
                 gap: 12,
                 padding: "10px 0",
-                borderTop: "1px solid #EAE3D9",
+                borderTop: "1px solid #E6E4DE",
                 fontSize: 15,
               }}
             >
@@ -179,7 +176,7 @@ export default function LettingAgentsPage() {
               fontFamily: "var(--font-display)",
               fontSize: 26,
               lineHeight: 1.35,
-              color: "#0C3536",
+              color: "#16181A",
             }}
           >
             [Review from a letting agent client, pulled from Google]
@@ -269,7 +266,7 @@ function Tier({
 }) {
   return (
     <div className={featured ? "card card-featured" : "card"}>
-      <div className="small" style={{ fontWeight: 600, color: featured ? "#C6DEDB" : "#4C5E5B" }}>
+      <div className="small" style={{ fontWeight: 600, color: featured ? "#C9CBCD" : "#5F6266" }}>
         {label}
       </div>
       <div
@@ -277,7 +274,7 @@ function Tier({
           fontFamily: "var(--font-display)",
           fontSize: 30,
           fontWeight: 600,
-          color: featured ? "#F2B705" : "#0C3536",
+          color: featured ? "#C9A55A" : "#16181A",
         }}
       >
         {value}

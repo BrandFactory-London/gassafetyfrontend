@@ -32,13 +32,10 @@ export default function AlarmsPage() {
 
       <section className="container split hero-inner">
         <div style={{ flex: "1 1 560px" }} className="hero">
-          <p className="eyebrow" style={{ marginBottom: 18 }}>
-            Fire and CO safety · Checked every tenancy
-          </p>
           <h1 className="display-xl">Smoke and carbon monoxide alarms for landlords</h1>
           <p className="lead">
-            We check, supply and fit alarms to the current rules for rented homes in England, and
-            record what we did for your files.
+            We check, supply and fit alarms to the current rules for rented homes in England at the
+            start of every tenancy, and record what we did for your files.
           </p>
           <div className="row">
             <div>
@@ -51,8 +48,8 @@ export default function AlarmsPage() {
         </div>
         <div style={{ flex: "1 1 360px", display: "flex", justifyContent: "center" }}>
           <div
-            className="icon-tile tile-alarm"
-            style={{ width: 160, height: 160, borderRadius: 40 }}
+            className="icon-tile tile-neutral"
+            style={{ width: 160, height: 160, borderRadius: 6 }}
           >
             <AlarmIcon size={88} />
           </div>

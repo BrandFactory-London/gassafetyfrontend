@@ -56,9 +56,6 @@ export default function GasSafetyPage() {
 
       <section className="container split split-top hero-inner">
         <div style={{ flex: "1 1 560px" }} className="hero">
-          <p className="eyebrow" style={{ marginBottom: 18 }}>
-            Gas safety · Required every 12 months
-          </p>
           <h1 className="display-xl">Landlord Gas Safety Certificates in London and Essex</h1>
           <p className="lead">
             Your annual gas safety check (CP12) by a Gas Safe registered engineer. Fixed price,
@@ -160,7 +157,7 @@ export default function GasSafetyPage() {
                 <td>Boiler only</td>
                 <td>£[XX]</td>
                 <td>
-                  <strong style={{ color: "#0C3536" }}>£[XXX]</strong>{" "}
+                  <strong style={{ color: "#16181A" }}>£[XXX]</strong>{" "}
                   <span className="badge badge-soft">Save £[XX]</span>
                 </td>
               </tr>
@@ -168,7 +165,7 @@ export default function GasSafetyPage() {
                 <td>Boiler and cooker or hob</td>
                 <td>£[XX]</td>
                 <td>
-                  <strong style={{ color: "#0C3536" }}>£[XXX]</strong>{" "}
+                  <strong style={{ color: "#16181A" }}>£[XXX]</strong>{" "}
                   <span className="badge badge-soft">Save £[XX]</span>
                 </td>
               </tr>
@@ -204,7 +201,7 @@ export default function GasSafetyPage() {
                 style={{ background: "#fff", color: "#182826", borderRadius: 12, padding: 22 }}
               >
                 <span className={`pill pill-${c.pill}`}>{c.label}</span>
-                <h3 className="heading-sm" style={{ margin: "12px 0 6px", color: "#0C3536" }}>
+                <h3 className="heading-sm" style={{ margin: "12px 0 6px", color: "#16181A" }}>
                   {c.meaning}
                 </h3>
                 <p className="small">{c.text}</p>

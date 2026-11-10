@@ -28,8 +28,7 @@ const certificates = [
     every: "Lasts 10 years",
     years: 10,
     price: prices.epc,
-    href: "/book",
-    linkLabel: "Get an EPC price",
+    href: "/landlord-certificates/epc",
   },
   {
     name: "Smoke and CO alarms",
@@ -311,7 +310,7 @@ export default function HomePage() {
               </div>
               <span className="fd-sched-price">{c.price}</span>
               <Link href={c.href} className="fd-link" style={{ fontSize: 15 }}>
-                {"linkLabel" in c ? c.linkLabel : `${c.name} details`}
+                {`${c.name} details`}
               </Link>
             </div>
           ))}

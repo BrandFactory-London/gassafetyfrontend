@@ -37,7 +37,7 @@ export default function ContactPage() {
           {options.map((o) => (
             <article key={o.title} className="card">
               <h2 className="heading-sm">{o.title}</h2>
-              <p style={{ fontWeight: 600, color: "#0C3536" }}>{o.detail}</p>
+              <p style={{ fontWeight: 600, color: "#16181A" }}>{o.detail}</p>
               <p className="card-text">{o.note}</p>
             </article>
           ))}

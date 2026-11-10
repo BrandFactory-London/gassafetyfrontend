@@ -198,9 +198,6 @@ export default function ComplianceChecker() {
   if (screen === "intro") {
     return (
       <div className="panel-white" style={{ padding: 48 }}>
-        <p className="eyebrow" style={{ marginBottom: 14 }}>
-          Free compliance check
-        </p>
         <h1
           className="display-xl"
           style={{ fontSize: "clamp(34px, 4.5vw, 44px)", marginBottom: 16 }}
@@ -249,13 +246,13 @@ export default function ComplianceChecker() {
           aria-valuemax={100}
           aria-valuenow={pct}
           aria-label="Progress"
-          style={{ height: 6, background: "#F1E9DD", borderRadius: 999, marginBottom: 32 }}
+          style={{ height: 6, background: "#EBE9E3", borderRadius: 999, marginBottom: 32 }}
         >
           <div
             style={{
               height: 6,
               width: `${pct}%`,
-              background: "#1B7A73",
+              background: "#16181A",
               borderRadius: 999,
               transition: "width 0.2s",
             }}
@@ -294,9 +291,6 @@ export default function ComplianceChecker() {
   return (
     <div className="stack-lg">
       <div className="panel-white" style={{ padding: "44px 48px" }}>
-        <p className="eyebrow" style={{ marginBottom: 12 }}>
-          Your results
-        </p>
         <h1 className="heading-lg" style={{ marginBottom: 10 }} aria-live="polite">
           {headline}
         </h1>
@@ -314,11 +308,11 @@ export default function ComplianceChecker() {
                 alignItems: "flex-start",
                 gap: "8px 16px",
                 padding: "18px 0",
-                borderTop: "1px solid #EAE3D9",
+                borderTop: "1px solid #E6E4DE",
               }}
             >
               <div style={{ flex: "1 1 300px" }}>
-                <div style={{ fontWeight: 600, color: "#0C3536" }}>{r.name}</div>
+                <div style={{ fontWeight: 600, color: "#16181A" }}>{r.name}</div>
                 <div className="small muted">{r.note}</div>
               </div>
               <span className={`pill pill-${r.tone}`}>{r.status}</span>

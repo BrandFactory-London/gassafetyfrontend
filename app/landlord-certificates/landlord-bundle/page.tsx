@@ -29,9 +29,6 @@ export default function BundlePage() {
 
       <section className="container split split-top hero-inner">
         <div style={{ flex: "1 1 560px" }} className="hero">
-          <p className="eyebrow" style={{ marginBottom: 18 }}>
-            Landlord Bundle · Best value
-          </p>
           <h1 className="display-xl">Gas and electrical certificates in one visit</h1>
           <p className="lead">
             Your Gas Safety Certificate and EICR from one registered team, on one day. One booking,
@@ -79,28 +76,28 @@ export default function BundlePage() {
                 <td>Visits to arrange with your tenant</td>
                 <td>2</td>
                 <td>
-                  <strong style={{ color: "#0C3536" }}>1</strong>
+                  <strong style={{ color: "#16181A" }}>1</strong>
                 </td>
               </tr>
               <tr>
                 <td>Bookings and invoices</td>
                 <td>2</td>
                 <td>
-                  <strong style={{ color: "#0C3536" }}>1</strong>
+                  <strong style={{ color: "#16181A" }}>1</strong>
                 </td>
               </tr>
               <tr>
                 <td>Price for a 2 to 3 bedroom property</td>
                 <td>£[XXX]</td>
                 <td>
-                  <strong style={{ color: "#0C3536" }}>£[XXX]</strong>
+                  <strong style={{ color: "#16181A" }}>£[XXX]</strong>
                 </td>
               </tr>
               <tr>
                 <td>Certificates on record</td>
                 <td>Separately</td>
                 <td>
-                  <strong style={{ color: "#0C3536" }}>Together, same day</strong>
+                  <strong style={{ color: "#16181A" }}>Together, same day</strong>
                 </td>
               </tr>
             </tbody>

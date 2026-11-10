@@ -6,16 +6,13 @@ import { Button, CtaSection, SectionHead, ServiceCard, TrustBar } from "@/compon
 export const metadata: Metadata = {
   title: "Landlord Safety Certificates in London and Essex",
   description:
-    "Every safety certificate a London or Essex landlord needs: Gas Safety (CP12), EICR, alarm checks and more. Fixed prices and certificates within 24 hours.",
+    "Every safety certificate a London or Essex landlord needs: Gas Safety (CP12), EICR, EPC, alarm checks and more. Fixed prices and certificates within 24 hours.",
 };
 
 export default function CertificatesHubPage() {
   return (
     <>
       <section className="container hero" style={{ paddingBottom: 56 }}>
-        <p className="eyebrow" style={{ marginBottom: 18 }}>
-          Landlord certificates
-        </p>
         <h1 className="display-xl" style={{ maxWidth: 820 }}>
           Every safety certificate your rental needs, from one registered team
         </h1>
@@ -50,6 +47,15 @@ export default function CertificatesHubPage() {
             linkLabel="EICR"
           />
           <ServiceCard
+            icon={<DocIcon />}
+            tile="neutral"
+            title="EPC"
+            text="Needed before you let and valid for 10 years. Rated E or above today, C by October 2030."
+            price={prices.epc}
+            href="/landlord-certificates/epc"
+            linkLabel="EPC"
+          />
+          <ServiceCard
             featured
             badge="Best value"
             title="Landlord Bundle"
@@ -60,7 +66,7 @@ export default function CertificatesHubPage() {
           />
           <ServiceCard
             icon={<AlarmIcon />}
-            tile="alarm"
+            tile="neutral"
             title="Smoke and CO alarms"
             text="Checked and fitted to current rules at the start of every tenancy."
             price={prices.alarmCheck}
