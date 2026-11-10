@@ -26,7 +26,7 @@ const SERVICES = [
   {
     id: "alarms",
     label: "Smoke and CO alarm check",
-    sub: "Checked and fitted to current rules",
+    sub: `Free with any certificate. Fitting from ${prices.alarmFit} per alarm`,
     price: prices.alarmCheck,
   },
   {

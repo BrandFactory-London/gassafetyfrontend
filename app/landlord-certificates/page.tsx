@@ -68,8 +68,8 @@ export default function CertificatesHubPage() {
             icon={<AlarmIcon />}
             tile="neutral"
             title="Smoke and CO alarms"
-            text="Checked and fitted to current rules at the start of every tenancy."
-            price={prices.alarmCheck}
+            text="Free check with any certificate, and fitted to current rules at the start of every tenancy."
+            price={prices.alarmFit}
             href="/landlord-certificates/smoke-co-alarms"
             linkLabel="Smoke and CO alarms"
           />

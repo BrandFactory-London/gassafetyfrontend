@@ -23,6 +23,27 @@ export const metadata: Metadata = {
     "Landlord EICRs across London and Essex by NAPIT registered electricians. Fixed prices, tenant access arranged and your report emailed within 24 hours.",
 };
 
+const eicrRows = [
+  {
+    size: "Studio or 1 bedroom",
+    eicr: prices.eicr,
+    bundle: prices.bundle,
+    saving: prices.bundleSaving,
+  },
+  {
+    size: "2 to 3 bedrooms",
+    eicr: prices.eicrMid,
+    bundle: prices.bundleMid,
+    saving: prices.bundleSavingMax,
+  },
+  {
+    size: "4 to 5 bedrooms",
+    eicr: prices.eicrLarge,
+    bundle: prices.bundleLarge,
+    saving: prices.bundleSavingMax,
+  },
+];
+
 const codes = [
   {
     code: "C1",
@@ -76,7 +97,7 @@ export default function EicrPage() {
             </div>
             <Button href="/book?service=eicr">Book an EICR</Button>
             <Link href="/landlord-certificates/landlord-bundle" className="link-strong">
-              Add a gas check and save {prices.bundleSaving}
+              Add a gas check and save up to {prices.bundleSavingMax}
             </Link>
           </div>
           <InlineTicks
@@ -163,13 +184,13 @@ export default function EicrPage() {
               </tr>
             </thead>
             <tbody>
-              {["Studio or 1 bedroom", "2 to 3 bedrooms", "4 to 5 bedrooms"].map((row) => (
-                <tr key={row}>
-                  <td>{row}</td>
-                  <td>£[XXX]</td>
+              {eicrRows.map((row) => (
+                <tr key={row.size}>
+                  <td>{row.size}</td>
+                  <td>{row.eicr}</td>
                   <td>
-                    <strong style={{ color: "#16181A" }}>£[XXX]</strong>{" "}
-                    <span className="badge badge-soft">Save £[XX]</span>
+                    <strong style={{ color: "#16181A" }}>{row.bundle}</strong>{" "}
+                    <span className="badge badge-soft">Save {row.saving}</span>
                   </td>
                 </tr>
               ))}
@@ -322,7 +343,7 @@ export default function EicrPage() {
             },
             {
               q: "Can I book an EICR and Gas Safety Certificate together?",
-              a: `Yes. The Landlord Bundle covers your EICR and Gas Safety Certificate in one visit, with one booking, one tenant appointment and one invoice, and saves ${prices.bundleSaving} against booking them separately. Smoke and carbon monoxide alarm checks are included in the same visit.\n\nBecause gas checks are annual and EICRs run for five years, your dates may not line up today. If your EICR is due within the next few months, we can do it alongside your gas check so the two stay together from then on. We keep both dates on record and remind you before each one is due.`,
+              a: `Yes. The Landlord Bundle covers your EICR and Gas Safety Certificate in one visit, with one booking, one tenant appointment and one invoice, and saves ${prices.bundleSaving} to ${prices.bundleSavingMax} against booking them separately, depending on the size of the property. Smoke and carbon monoxide alarm checks are included in the same visit.\n\nBecause gas checks are annual and EICRs run for five years, your dates may not line up today. If your EICR is due within the next few months, we can do it alongside your gas check so the two stay together from then on. We keep both dates on record and remind you before each one is due.`,
             },
           ]}
         />
@@ -353,8 +374,8 @@ export default function EicrPage() {
             icon={<AlarmIcon />}
             tile="neutral"
             title="Smoke and CO alarms"
-            text="Checked and fitted to current rules."
-            price={prices.alarmCheck}
+            text="Free check with any certificate. Fitted to current rules."
+            price={prices.alarmFit}
             href="/landlord-certificates/smoke-co-alarms"
             linkLabel="Book an alarm check"
           />

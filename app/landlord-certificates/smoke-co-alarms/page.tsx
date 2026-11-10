@@ -39,7 +39,7 @@ export default function AlarmsPage() {
           </p>
           <div className="row">
             <div>
-              <div className="caption">Alarm check from</div>
+              <div className="caption">Alarm check with any certificate</div>
               <div className="price-lg">{prices.alarmCheck}</div>
               <div className="caption">Supply and fit from {prices.alarmFit} per alarm</div>
             </div>
@@ -119,7 +119,7 @@ export default function AlarmsPage() {
             },
             {
               q: "Can you check alarms during my gas or EICR visit?",
-              a: `Yes. Alarm checks are included in the Landlord Bundle and can be added to a standalone gas or EICR visit for ${prices.alarmCheck}. Our engineer tests every smoke and carbon monoxide alarm, checks they are in the right places and within their replacement dates, and records the results so you have evidence they were working.\n\nIf an alarm is missing, faulty or past its replacement date, we can fit a new one on the same visit from ${prices.alarmFit} per alarm, so you do not need a second appointment. This is especially useful at the start of a new tenancy, when the law requires every alarm to be working on the day the tenancy begins.`,
+              a: `Yes. Alarm checks are included in the Landlord Bundle and are free when added to a standalone gas or EICR visit. Our engineer tests every smoke and carbon monoxide alarm, checks they are in the right places and within their replacement dates, and records the results so you have evidence they were working.\n\nIf an alarm is missing, faulty or past its replacement date, we can fit a new one on the same visit from ${prices.alarmFit} per alarm, so you do not need a second appointment. This is especially useful at the start of a new tenancy, when the law requires every alarm to be working on the day the tenancy begins.`,
             },
             {
               q: "Who tests the alarms during the tenancy?",
@@ -135,7 +135,7 @@ export default function AlarmsPage() {
         button="Book an alarm check"
         href="/book?service=alarms"
       />
-      <MobileBar label="Alarm check from" price={prices.alarmCheck} href="/book?service=alarms" />
+      <MobileBar label="Alarm fitting from" price={prices.alarmFit} href="/book?service=alarms" />
     </>
   );
 }

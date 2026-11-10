@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           Skip to content
         </a>
         <div className="preview-banner">
-          Preview site. Prices, reviews and forms are placeholders until launch.
+          Preview site. Reviews and forms are placeholders until launch.
         </div>
         <SiteHeader />
         <main id="main">{children}</main>

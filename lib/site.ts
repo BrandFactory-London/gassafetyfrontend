@@ -34,16 +34,25 @@ export const site = {
 } as const;
 
 export const prices = {
-  cp12: "£[XX]",
-  eicr: "£[XXX]",
-  epc: "£[XX]",
-  bundle: "£[XXX]",
-  bundleSaving: "£[XX]",
-  alarmCheck: "£[XX]",
-  alarmFit: "£[XX]",
-  boilerService: "£[XX]",
-  extraAppliance: "£[XX]",
-  extraConsumerUnit: "£[XX]",
+  cp12: "£69",
+  cp12BoilerHob: "£79",
+  eicr: "£99",
+  eicrMid: "£129",
+  eicrLarge: "£169",
+  epc: "£79",
+  bundle: "£149",
+  bundleMid: "£159",
+  bundleLarge: "£199",
+  bundleBoilerOnly: "£139",
+  bundleSaving: "£29",
+  separateMid: "£208",
+  bundleSavingMax: "£49",
+  alarmCheck: "Free",
+  alarmFit: "£69",
+  boilerService: "£115",
+  extraAppliance: "£20",
+  extraConsumerUnit: "£49",
+  agentDiscount: "20%",
 } as const;
 
 export type NavItem = { label: string; href: string };
