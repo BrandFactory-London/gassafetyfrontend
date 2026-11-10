@@ -66,17 +66,22 @@ export default function EmergencyButton() {
               />
             </svg>
           </button>
-          <p className="fd-sos-kicker">24/7 emergency line</p>
+          <div className="fd-sos-head">
+            <p className="fd-sos-kicker">24/7 emergency line</p>
+            <p
+              className="fd-sos-avail"
+              aria-label={`${emergency.engineersAvailable} engineers available now`}
+            >
+              <span className="fd-pulse-dot" aria-hidden="true" />
+              {emergency.engineersAvailable} available
+            </p>
+          </div>
           <h2 id="sos-title" className="fd-sos-title">
             Need a Gas Safe engineer or an electrician now?
           </h2>
           <p className="fd-sos-text">
             For a gas or electrical emergency in London, call our 24/7 line and we will send the
             nearest engineer.
-          </p>
-          <p className="fd-sos-status">
-            <span className="fd-pulse-dot" aria-hidden="true" />
-            {emergency.engineersAvailable} engineers available now
           </p>
           <a href={emergency.phoneHref} className="fd-btn fd-sos-call">
             Call {emergency.phone}
@@ -96,16 +101,14 @@ export default function EmergencyButton() {
         onClick={() => setOpen((v) => !v)}
       >
         <span className="fd-sos-ring" aria-hidden="true" />
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          {/* Beacon: dome, base and light rays */}
-          <path d="M7 17v-4a5 5 0 0 1 10 0v4" fill="currentColor" />
-          <rect x="5" y="17" width="14" height="3" rx="1" fill="currentColor" />
+        <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true">
+          {/* Hazard sign: rounded white triangle with an exclamation mark */}
           <path
-            d="M12 3v2M4.2 6.2l1.4 1.4M19.8 6.2l-1.4 1.4M2 12h2M20 12h2"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
+            d="M10.27 3.5a2 2 0 0 1 3.46 0l8.06 14A2 2 0 0 1 20.06 20.5H3.94a2 2 0 0 1-1.73-3l8.06-14z"
+            fill="currentColor"
           />
+          <path d="M12 9v4.5" stroke="var(--fd-sign-red)" strokeWidth="2.2" strokeLinecap="round" />
+          <circle cx="12" cy="16.8" r="1.25" fill="var(--fd-sign-red)" />
         </svg>
       </button>
     </div>

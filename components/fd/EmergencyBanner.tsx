@@ -10,7 +10,7 @@ export default function EmergencyBanner() {
         <span className="fd-urgent-long">
           Urgent call-out in London? 24/7 {emergency.services} engineers:
         </span>
-        <span className="fd-urgent-short">24/7 emergency call-outs:</span>
+        <span className="fd-urgent-short">24/7 emergency:</span>
         <a href={emergency.phoneHref} className="fd-urgent-phone">
           Call {emergency.phone}
         </a>

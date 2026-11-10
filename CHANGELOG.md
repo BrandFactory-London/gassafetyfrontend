@@ -5,6 +5,13 @@ Versions follow semver. The site is pre-launch: nothing has been released or tag
 
 ## [Unreleased]
 
+### Changed
+
+- Emergency UI refinements (KSF-TKT-87): the header is now sticky with the tile rule attached, the red urgent
+  banner sits beneath it on one line at every width, and the preview banner is removed. The phone emergency
+  button is a flat red with a hazard triangle and a gentler pulse; the engineers-available indicator is a
+  small pill at the top right of the card beside "24/7 emergency line".
+
 ### Added
 
 - Client meeting changes (KSF-TKT-86): fire alarms and panels page, boiler installation page and a
