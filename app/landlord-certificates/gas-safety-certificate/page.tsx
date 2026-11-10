@@ -155,18 +155,18 @@ export default function GasSafetyPage() {
             <tbody>
               <tr>
                 <td>Boiler only</td>
-                <td>£[XX]</td>
+                <td>{prices.cp12}</td>
                 <td>
-                  <strong style={{ color: "#16181A" }}>£[XXX]</strong>{" "}
-                  <span className="badge badge-soft">Save £[XX]</span>
+                  <strong style={{ color: "#16181A" }}>{prices.bundleBoilerOnly}</strong>{" "}
+                  <span className="badge badge-soft">Save {prices.bundleSaving}</span>
                 </td>
               </tr>
               <tr>
                 <td>Boiler and cooker or hob</td>
-                <td>£[XX]</td>
+                <td>{prices.cp12BoilerHob}</td>
                 <td>
-                  <strong style={{ color: "#16181A" }}>£[XXX]</strong>{" "}
-                  <span className="badge badge-soft">Save £[XX]</span>
+                  <strong style={{ color: "#16181A" }}>{prices.bundle}</strong>{" "}
+                  <span className="badge badge-soft">Save {prices.bundleSaving}</span>
                 </td>
               </tr>
               <tr>
@@ -259,7 +259,7 @@ export default function GasSafetyPage() {
             },
             {
               q: "Can you do the EICR at the same time?",
-              a: `Yes. Our Landlord Bundle covers the Gas Safety Certificate and the EICR in one visit, with one booking, one tenant appointment and one invoice, and it costs ${prices.bundleSaving} less than booking them separately. Smoke and carbon monoxide alarm checks are included too, and your tenant only has to give access once.\n\nThe gas check is due every year and the EICR every five years, so they will not always fall due together. If your EICR is close to expiring, we can bring it forward so both are done on the same day. Once your dates are aligned, we remind you ahead of each renewal so nothing lapses.`,
+              a: `Yes. Our Landlord Bundle covers the Gas Safety Certificate and the EICR in one visit, with one booking, one tenant appointment and one invoice, and it costs ${prices.bundleSaving} to ${prices.bundleSavingMax} less than booking them separately, depending on the size of the property. Smoke and carbon monoxide alarm checks are included too, and your tenant only has to give access once.\n\nThe gas check is due every year and the EICR every five years, so they will not always fall due together. If your EICR is close to expiring, we can bring it forward so both are done on the same day. Once your dates are aligned, we remind you ahead of each renewal so nothing lapses.`,
             },
           ]}
         />

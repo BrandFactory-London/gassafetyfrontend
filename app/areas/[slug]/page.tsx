@@ -122,8 +122,8 @@ export default async function AreaPage({ params }: Props) {
           />
           <ServiceCard
             title="Smoke and CO alarms"
-            text="Checked and fitted to current rules."
-            price={prices.alarmCheck}
+            text="Free check with any certificate. Fitted to current rules."
+            price={prices.alarmFit}
             href="/landlord-certificates/smoke-co-alarms"
             linkLabel={`Book in ${area.name}`}
           />

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { site } from "@/lib/site";
+import { prices, site } from "@/lib/site";
 import { ClockIcon, DocIcon, FlameIcon, LockIcon } from "@/components/icons";
 import { Button, FaqList, FeaturePanel, SectionHead, Steps } from "@/components/ui";
 import AgentForm from "@/components/AgentForm";
@@ -158,7 +158,7 @@ export default function LettingAgentsPage() {
           <Tier label="1 to 10 properties" value="Standard" text="Monthly invoicing included" />
           <Tier
             label="11 to 50 properties"
-            value="[X]% off"
+            value={`${prices.agentDiscount} off`}
             text="Plus a named account manager"
             featured
           />

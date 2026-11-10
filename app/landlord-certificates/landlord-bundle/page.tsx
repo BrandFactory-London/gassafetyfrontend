@@ -88,9 +88,9 @@ export default function BundlePage() {
               </tr>
               <tr>
                 <td>Price for a 2 to 3 bedroom property</td>
-                <td>£[XXX]</td>
+                <td>{prices.separateMid}</td>
                 <td>
-                  <strong style={{ color: "#16181A" }}>£[XXX]</strong>
+                  <strong style={{ color: "#16181A" }}>{prices.bundleMid}</strong>
                 </td>
               </tr>
               <tr>

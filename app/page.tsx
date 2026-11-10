@@ -35,7 +35,7 @@ const certificates = [
     rule: "A smoke alarm on every storey and a CO alarm by every fixed combustion appliance, checked at the start of each tenancy.",
     every: "Every new tenancy",
     years: 0.4,
-    price: prices.alarmCheck,
+    price: `${prices.alarmCheck} check`,
     href: "/landlord-certificates/smoke-co-alarms",
   },
 ];
@@ -144,7 +144,7 @@ export default function HomePage() {
             </table>
             <p className="fd-small" style={{ marginTop: 20 }}>
               Gas Safe {site.registrations.gasSafe} · NICEIC {site.registrations.nic} · Insured to{" "}
-              {site.liability} · Prices are placeholders
+              {site.liability} · Prices include VAT
             </p>
           </div>
         </div>

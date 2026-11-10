@@ -7,6 +7,9 @@ Versions follow semver. The site is pre-launch: nothing has been released or tag
 
 ### Changed
 
+- Prices set from London competitor research, just below the market average, VAT included and the same
+  across London and Essex: CP12 from £69, EICR from £99, EPC £79, bundle from £149, boiler service £115,
+  alarm check free with any certificate and 20% off for agents with 11 to 50 properties (KSF-TKT-83).
 - Every remaining page restyled in The Front Door system: older page styles re-skinned to the new palette,
   type and shapes, small capitals labels removed (facts moved into the intro lines), old teal and yellow
   colours replaced, and the phone booking bar now appears only after the main button scrolls away.

@@ -10,15 +10,24 @@ export const metadata: Metadata = {
 };
 
 const rows = [
-  { service: "Gas Safety Certificate (boiler and hob)", cells: ["£[XX]", "£[XX]", "£[XX]"] },
-  { service: "EICR", cells: ["£[XXX]", "£[XXX]", "£[XXX]"] },
+  {
+    service: "Gas Safety Certificate (boiler and hob)",
+    cells: [prices.cp12BoilerHob, prices.cp12BoilerHob, prices.cp12BoilerHob],
+  },
+  { service: "EICR", cells: [prices.eicr, prices.eicrMid, prices.eicrLarge] },
   {
     service: "Landlord Bundle (gas and EICR)",
-    cells: ["£[XXX]", "£[XXX]", "£[XXX]"],
+    cells: [prices.bundle, prices.bundleMid, prices.bundleLarge],
     featured: true,
   },
-  { service: "Smoke and CO alarm check", cells: ["£[XX]", "£[XX]", "£[XX]"] },
-  { service: "Boiler service", cells: ["£[XX]", "£[XX]", "£[XX]"] },
+  {
+    service: "Smoke and CO alarm check (with any certificate)",
+    cells: [prices.alarmCheck, prices.alarmCheck, prices.alarmCheck],
+  },
+  {
+    service: "Boiler service",
+    cells: [prices.boilerService, prices.boilerService, prices.boilerService],
+  },
 ];
 
 export default function PricingPage() {
@@ -68,9 +77,9 @@ export default function PricingPage() {
           </table>
         </div>
         <p className="caption" style={{ marginTop: 16 }}>
-          Extra gas appliances {prices.extraAppliance} each. Extra consumer units{" "}
-          {prices.extraConsumerUnit} each. HMOs, 6+ bedrooms and commercial properties priced on
-          request.
+          Extra gas appliances {prices.extraAppliance} each. Smoke and CO alarms supplied and fitted
+          from {prices.alarmFit} each. Extra consumer units {prices.extraConsumerUnit} each. HMOs,
+          6+ bedrooms and commercial properties priced on request.
         </p>
       </section>
 
@@ -80,8 +89,8 @@ export default function PricingPage() {
             One price list for London and Essex
           </h2>
           <p className="body">
-            [Prices are the same across our whole area.] OR [Essex prices are £[XX] lower than
-            London. Client to confirm which.]
+            Prices are the same across our whole area, from central London to the Essex coast. No
+            zone charges and no extra for outer postcodes.
           </p>
         </div>
         <div className="panel-soft">
